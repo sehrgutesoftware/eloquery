@@ -5,7 +5,7 @@ namespace SehrGut\EloQuery\Contracts;
 use Illuminate\Database\Query\Builder;
 
 /**
- * Describes a "grammer" that is capable of extracting structured parameters from a request.
+ * Describes a "grammar" according to which we extract structured parameters from a request.
  */
 interface Grammar
 {
