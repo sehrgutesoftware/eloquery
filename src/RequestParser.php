@@ -27,7 +27,8 @@ class RequestParser
      * @var array
      */
     protected $grammar = [
-        'filter' => SehrGut\EloQuery\Grammar\FilterGrammar::class,
+        'filter' => \SehrGut\EloQuery\Grammar\FilterGrammar::class,
+        'sort' => \SehrGut\EloQuery\Grammar\SortGrammar::class,
     ];
 
     /**
@@ -66,7 +67,7 @@ class RequestParser
      *
      * @return OperationCollection
      */
-    public function extractFilters() : OperationCollection
+    public function extractFilter() : OperationCollection
     {
         $grammarClass = $this->grammar['filter'];
         $grammar = new $grammarClass();
@@ -76,6 +77,23 @@ class RequestParser
         }, $grammar->extract($request));
 
         return new OperationCollection($filters);
+    }
+
+    /**
+     * Extract sort orders from the request.
+     *
+     * @return OperationCollection
+     */
+    public function extractSort() : OperationCollection
+    {
+        $grammarClass = $this->grammar['sort'];
+        $grammar = new $grammarClass();
+
+        $sort = array_map(function ($sort) {
+            return new Sort($sort['key'], $sort['direction']);
+        }, $grammar->extract($request));
+
+        return new OperationCollection($sort);
     }
 
     /**
@@ -107,6 +125,6 @@ class RequestParser
      */
     protected function getNameOfExtractMethod(string $component) : string
     {
-        return Str::camel('extract_' . $component . 's');  // eg. extractFilters
+        return Str::camel('extract_' . $component);  // eg. extractFilter
     }
 }

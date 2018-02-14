@@ -109,4 +109,20 @@ class FilterGrammarTest extends TestCase
         $grammar = new FilterGrammar();
         $result = $grammar->extract($this->request);
     }
+
+    /**
+     * @expectedException UnexpectedValueException
+     */
+    public function test_it_bails_when_operator_is_invalid()
+    {
+        $this->request->shouldReceive('get')
+            ->once()
+            ->with('filter')
+            ->andReturn([
+                ['key' => 'something', 'value' => 'someValue', 'operator' => 'BOGUS'],
+            ]);
+
+        $grammar = new FilterGrammar();
+        $result = $grammar->extract($this->request);
+    }
 }

@@ -4,6 +4,7 @@ namespace SehrGut\EloQuery\Grammar;
 
 use Illuminate\Http\Request;
 use SehrGut\EloQuery\Operations\Filter;
+use SehrGut\EloQuery\Operators;
 use UnexpectedValueException;
 
 /**
@@ -44,6 +45,15 @@ class FilterGrammar
             // Ensure that key and value are present
             if (!isset($filter['key']) or !isset($filter['value'])) {
                 throw new UnexpectedValueException('each filter must contain both key and value');
+            }
+
+            // Ensure that operator is valid
+            if (isset($filter['operator']) and !Operators::exists(strtoupper($filter['operator']))) {
+                throw new UnexpectedValueException(sprintf(
+                    'Invalid filter operator (%s). Must be one of (%s)',
+                    $filter['operator'],
+                    implode(', ', Operators::all())
+                ));
             }
         }
     }

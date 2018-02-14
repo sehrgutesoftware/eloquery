@@ -57,27 +57,7 @@ abstract class AbstractConstraint implements Operation
      */
     public function applyToBuilder(Builder $builder)
     {
-        call_user_func_array([$builder, $this->getBuilderMethod()], $this->getBuilderArguments());
-    }
-
-    /**
-     * The value transformed to match the operation.
-     *
-     * @return mixed
-     */
-    protected function getPreparedValue()
-    {
-        return $this->value;
-    }
-
-    /**
-     * The method to call on the builder.
-     *
-     * @return string
-     */
-    protected function getBuilderMethod() : string
-    {
-        return 'where';
+        $builder->{$this->getBuilderMethod()}(...$this->getBuilderArguments());
     }
 
     /**
@@ -96,5 +76,25 @@ abstract class AbstractConstraint implements Operation
         $arguments[] = $this->getPreparedValue();
 
         return $arguments;
+    }
+
+    /**
+     * The method to call on the builder.
+     *
+     * @return string
+     */
+    protected function getBuilderMethod() : string
+    {
+        return 'where';
+    }
+
+    /**
+     * The value transformed to match the operation.
+     *
+     * @return mixed
+     */
+    protected function getPreparedValue()
+    {
+        return $this->value;
     }
 }
