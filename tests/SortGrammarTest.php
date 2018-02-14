@@ -58,7 +58,7 @@ class SortGrammarTest extends TestCase
         $this->assertEquals([
             [
                 'key' => 'someField',
-                'direction' => null,
+                'direction' => 'ASC',
             ],
         ], $result);
     }

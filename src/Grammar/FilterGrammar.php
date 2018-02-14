@@ -67,14 +67,14 @@ class FilterGrammar
     protected function fillWithDefaults(array $filters) : array
     {
         foreach ($filters as &$filter) {
-            // Default operator is set through Filter::__construct() when passed as `null`
+            // Default operator
             if (!isset($filter['operator'])) {
-                $filter['operator'] = null;
+                $filter['operator'] = Operators::EQUALS;
             }
 
-            // Default negation is set through Filter::__construct() when passed as `null`
+            // Default negation
             if (!isset($filter['negated'])) {
-                $filter['negated'] = null;
+                $filter['negated'] = false;
             }
         }
 

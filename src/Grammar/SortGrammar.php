@@ -46,7 +46,7 @@ class SortGrammar
             }
 
             // Ensure that direction is valid
-            if (isset($sort['direction']) and !in_array(strtolower($sort['direction']), ['asc', 'desc'])) {
+            if (isset($sort['direction']) and !in_array(strtoupper($sort['direction']), ['ASC', 'DESC'])) {
                 throw new UnexpectedValueException('direction must be either "asc" or "desc" (or omitted)');
             }
         }
@@ -61,9 +61,9 @@ class SortGrammar
     protected function fillWithDefaults(array $sorts) : array
     {
         foreach ($sorts as &$sort) {
-            // Default direction is set through Sort::__construct() when passed as `null`
+            // Default direction
             if (!isset($sort['direction'])) {
-                $sort['direction'] = null;
+                $sort['direction'] = 'ASC';
             }
         }
 

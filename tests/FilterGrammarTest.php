@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Mockery;
 use SehrGut\EloQuery\Grammar\FilterGrammar;
 use SehrGut\EloQuery\Operations\Filter;
+use SehrGut\EloQuery\Operators;
 
 class FilterGrammarTest extends TestCase
 {
@@ -56,8 +57,8 @@ class FilterGrammarTest extends TestCase
             [
                 'key' => 'someField',
                 'value' => 'desiredValue',
-                'operator' => null,
-                'negated' => null,
+                'operator' => Operators::EQUALS,
+                'negated' => false,
             ],
         ], $result);
     }
