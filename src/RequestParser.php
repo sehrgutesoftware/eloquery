@@ -4,6 +4,7 @@ namespace SehrGut\EloQuery;
 
 use Illuminate\Http\Request;
 use SebastianBergmann\ObjectReflector\InvalidArgumentException;
+use SehrGut\EloQuery\Contracts\Grammar;
 
 class RequestParser
 {
@@ -69,8 +70,7 @@ class RequestParser
      */
     public function extractFilter() : OperationCollection
     {
-        $grammarClass = $this->grammar['filter'];
-        $grammar = new $grammarClass();
+        $grammar = $this->getGrammarForOperation('filter');
 
         $filters = array_map(function ($f) {
             return new Filter($f['key'], $f['value'], $f['operator'], $f['negated']);
@@ -86,8 +86,7 @@ class RequestParser
      */
     public function extractSort() : OperationCollection
     {
-        $grammarClass = $this->grammar['sort'];
-        $grammar = new $grammarClass();
+        $grammar = $this->getGrammarForOperation('sort');
 
         $sort = array_map(function ($sort) {
             return new Sort($sort['key'], $sort['direction']);
@@ -126,5 +125,18 @@ class RequestParser
     protected function getNameOfExtractMethod(string $component) : string
     {
         return Str::camel('extract_' . $component);  // eg. extractFilter
+    }
+
+    /**
+     * Get the appropriate grammar for given operation.
+     *
+     * @param string $operation
+     * @return Grammar
+     */
+    protected function getGrammarForOperation(string $operation) : Grammar
+    {
+        $grammarClass = $this->grammar[$operation];
+
+        return new $grammarClass();
     }
 }

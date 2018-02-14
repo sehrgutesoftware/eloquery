@@ -1,26 +1,33 @@
 # eloquery (WIP)
 > Apply query parameters (filter, sort, paginate, eager-load) to a laravel eloquent query builder.
 
+
 ## Todo
 - [ ] Refactor: Throw custom exception when parameters are invalid / insufficient
-- [ ] Implement Paginate & Include Grammar
+- [ ] Implement Paginate & Include grammar
+- [ ] Implement Include operation
 - [ ] Refactor: Query params should be customizable
+- [ ] Document query params syntax/usage
 
 
 ## Usage
 ### Example usage directly in Controller
 ```php
+use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use SehrGut\EloQuery\RequestParser;
 
 class BooksController extends Controller
 {
-    public function list(Request $request, RequestParser $parser)
+    /**
+     * List all records of type `Book`.
+     */ 
+    public function index(Request $request, RequestParser $parser)
     {
         $builder = Book::newQuery();
-        $operations = $parser->extractOperations();
 
+        $operations = $parser->extractOperations();
         $operations->applyToBuilder($builder);
 
         return $builder->get();
