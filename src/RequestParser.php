@@ -3,6 +3,7 @@
 namespace SehrGut\EloQuery;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use SebastianBergmann\ObjectReflector\InvalidArgumentException;
 use SehrGut\EloQuery\Contracts\Grammar;
 
@@ -48,7 +49,7 @@ class RequestParser
      * @param array $components
      * @return OperationCollection
      */
-    public function extractOperations(array $components = null) : OperationCollection
+    public function extractOperations(array $components = null): OperationCollection
     {
         if (is_null($components)) {
             $components = static::ALLOWED_COMPONENTS;
@@ -68,7 +69,7 @@ class RequestParser
      *
      * @return OperationCollection
      */
-    public function extractFilter() : OperationCollection
+    public function extractFilter(): OperationCollection
     {
         $grammar = $this->getGrammarForOperation('filter');
 
@@ -84,7 +85,7 @@ class RequestParser
      *
      * @return OperationCollection
      */
-    public function extractSort() : OperationCollection
+    public function extractSort(): OperationCollection
     {
         $grammar = $this->getGrammarForOperation('sort');
 
@@ -101,7 +102,7 @@ class RequestParser
      * @param string $component
      * @return OperationCollection
      */
-    protected function getOperationsForComponent(string $component) : OperationCollection
+    protected function getOperationsForComponent(string $component): OperationCollection
     {
         if (!array_key_exists($component, static::ALLOWED_COMPONENTS)) {
             throw new InvalidArgumentException(sprintf(
@@ -122,7 +123,7 @@ class RequestParser
      * @param string $component
      * @return string
      */
-    protected function getNameOfExtractMethod(string $component) : string
+    protected function getNameOfExtractMethod(string $component): string
     {
         return Str::camel('extract_' . $component);  // eg. extractFilter
     }
@@ -133,7 +134,7 @@ class RequestParser
      * @param string $operation
      * @return Grammar
      */
-    protected function getGrammarForOperation(string $operation) : Grammar
+    protected function getGrammarForOperation(string $operation): Grammar
     {
         $grammarClass = $this->grammar[$operation];
 

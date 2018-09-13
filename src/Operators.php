@@ -25,7 +25,7 @@ class Operators
      *
      * @return array
      */
-    public static function all() : array
+    public static function all(): array
     {
         $reflection = new ReflectionClass(__class__);
 
@@ -38,7 +38,7 @@ class Operators
      * @param string $operator
      * @return bool
      */
-    public static function exists(string $operator) : bool
+    public static function exists(string $operator): bool
     {
         return in_array($operator, static::all());
     }

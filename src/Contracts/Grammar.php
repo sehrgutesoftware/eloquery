@@ -12,8 +12,8 @@ interface Grammar
     /**
      * Extract all options from the request.
      *
-     * @param Builder $builder
+     * @param Request $request
      * @return array
      */
-    public function extract(Builder $builder) : array;
+    public function extract(Request $request) : array;
 }

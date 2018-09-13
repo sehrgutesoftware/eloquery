@@ -1,6 +1,5 @@
 # eloquery (WIP)
-> Apply query parameters (filter, sort, paginate, eager-load) to a laravel eloquent query builder.
-
+> Apply query parameters (filter, sort, paginate, eager-load) to a Laravel Eloquent query builder.
 
 ## Todo
 - [ ] Refactor: Throw custom exception when parameters are invalid / insufficient
@@ -8,7 +7,6 @@
 - [ ] Implement Include operation
 - [ ] Refactor: Query params should be customizable
 - [ ] Document query params syntax/usage
-
 
 ## Usage
 ### Example usage directly in Controller
@@ -22,7 +20,7 @@ class BooksController extends Controller
 {
     /**
      * List all records of type `Book`.
-     */ 
+     */
     public function index(Request $request, RequestParser $parser)
     {
         $builder = Book::newQuery();
@@ -35,14 +33,11 @@ class BooksController extends Controller
 }
 ```
 
-
 ## Changelog
 Please refer to [CHANGELOG.md](CHANGELOG.md).
 
-
 ## Compatibility
 > TBD
-
 
 ## Testing
 ```bash
@@ -50,10 +45,8 @@ composer install
 vendor/bin/phpunit
 ```
 
-
 ## Alternatives
 - Bruno: [https://github.com/esbenp/bruno](https://github.com/esbenp/bruno)
-
 
 ## License
 This software is licensed under the [MIT License](https://opensource.org/licenses/MIT). See [LICENSE.txt](LICENSE.txt) for details.

@@ -30,7 +30,7 @@ class OperationCollection implements Operation
      * @param array|Operation $operation One or more operations
      * @return self
      */
-    public function add($operation_s) : self
+    public function add($operation_s): self
     {
         if (is_array($operation_s)) {
             foreach ($operation_s as $operation) {
@@ -49,7 +49,7 @@ class OperationCollection implements Operation
      * @param OperationCollection $new
      * @return self
      */
-    public function merge(OperationCollection $new) : self
+    public function merge(OperationCollection $new): self
     {
         $this->add($new->dump());
 
@@ -61,7 +61,7 @@ class OperationCollection implements Operation
      *
      * @return array
      */
-    public function dump() : array
+    public function dump(): array
     {
         return $this->items;
     }
@@ -81,6 +81,9 @@ class OperationCollection implements Operation
 
     /**
      * Add an operation to the collection.
+     *
+     * This method is present to enable static type checking, which
+     * would not happen when plainly appending to the items array.
      *
      * @param Operation $operation
      * @return void
