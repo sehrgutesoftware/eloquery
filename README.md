@@ -1,4 +1,10 @@
 # eloquery (WIP)
+
+[![Build Status](https://travis-ci.org/sehrgutesoftware/eloquery.svg?branch=master)](https://travis-ci.org/sehrgutesoftware/eloquery)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2a41564ac07501a7bd66/test_coverage)](https://codeclimate.com/github/sehrgutesoftware/eloquery/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2a41564ac07501a7bd66/maintainability)](https://codeclimate.com/github/sehrgutesoftware/eloquery/maintainability)
+[![Latest Stable Version](https://poser.pugx.org/sehrgut/eloquery/v/stable)](https://packagist.org/packages/sehrgut/eloquery)
+
 > Apply query parameters (filter, sort, paginate, eager-load) to a Laravel Eloquent query builder.
 
 ## Todo
