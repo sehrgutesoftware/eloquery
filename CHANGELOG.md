@@ -1,5 +1,11 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.1.4
+- `applyToBuilder()` methods now return an `OperationResult` which can contain pagination meta data
+
+### v0.1.3
+- Replace `Database\Builder` with `Eloquent\Builder` in type checks
+
 ### v0.1.2
 - Add tests for RequestParser
 - Fix major bugs in RequestParser
