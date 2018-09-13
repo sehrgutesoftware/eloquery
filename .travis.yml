@@ -1,22 +1,19 @@
 language: php
 php:
-  # - '7.0'
-  # - '7.1'
+  - '7.0'
+  - '7.1'
   - '7.2'
 
 install:
   - composer install --prefer-dist
 script:
-  - vendor/bin/phpunit --coverage-clover=coverage.xml
+  - vendor/bin/phpunit --coverage-text --coverage-clover clover.xml
 
 before_script:
+  # Install code climate coverage reporter
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 after_script:
-  - ./cc-test-reporter after-build
-  # - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT || true; fi
-
-env:
-  global:
-    - CC_TEST_REPORTER_ID=ae24afdae6620953f3a77ca61682f152c719d26e0cba95e31013a8618818ffcd
+  # Submit coverage report to codeclimate
+  - if [ $(phpenv version-name) = "7.2" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build -r $CC_TEST_REPORTER_ID --exit-code $TRAVIS_TEST_RESULT; fi
