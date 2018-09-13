@@ -5,11 +5,10 @@ $dir = __DIR__ . '/../src';
 $iterator = Symfony\Component\Finder\Finder::create()
     ->files()
     ->name('*.php')
-    ->exclude('tests')
     ->in($dir);
 
 $versions = Sami\Version\GitVersionCollection::create($dir)
-    ->add('v0.1.0', 'Master');
+    ->addFromTags('v0.1.*');
 
 $options = [
     'theme' => 'default',
