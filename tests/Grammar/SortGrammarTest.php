@@ -22,11 +22,11 @@ class SortGrammarTest extends GrammarTestCase
         $this->assertEquals([
             [
                 'key' => 'someField',
-                'direction' => 'asc',
+                'direction' => 'ASC',
             ],
             [
                 'key' => 'otherField',
-                'direction' => 'desc',
+                'direction' => 'DESC',
             ],
         ], $result);
     }
