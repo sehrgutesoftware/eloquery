@@ -33,6 +33,9 @@
     "scripts": {
         "test": [
             "./vendor/bin/phpunit"
+        ],
+        "docs": [
+            "./bin/sami update docs/sami.php"
         ]
     }
 }

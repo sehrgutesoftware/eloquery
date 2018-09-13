@@ -44,6 +44,11 @@ composer install
 composer test
 ```
 
+## Generate API Docs
+```bash
+composer docs
+```
+
 ## Alternatives
 - Bruno: [https://github.com/esbenp/bruno](https://github.com/esbenp/bruno)
 
