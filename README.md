@@ -42,7 +42,7 @@ Please refer to [CHANGELOG.md](CHANGELOG.md).
 ## Testing
 ```bash
 composer install
-vendor/bin/phpunit
+composer test
 ```
 
 ## Alternatives
