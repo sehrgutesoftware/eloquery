@@ -5,6 +5,7 @@ namespace SehrGut\EloQuery\Operations;
 use Illuminate\Database\Eloquent\Builder;
 use Psr\Log\InvalidArgumentException;
 use SehrGut\EloQuery\Contracts\Operation;
+use SehrGut\EloQuery\OperationResult;
 
 class Paginate implements Operation
 {
@@ -46,11 +47,13 @@ class Paginate implements Operation
      * Apply the pagination constraints to a query builder.
      *
      * @param Builder $builder
-     * @return void
+     * @return OperationResult|null
      */
-    public function applyToBuilder(Builder $builder)
+    public function applyToBuilder(Builder $builder): ?OperationResult
     {
         $builder->limit($this->limit);
         $builder->offset(($this->page - 1) * $this->limit);
+
+        return null;
     }
 }

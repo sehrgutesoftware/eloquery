@@ -4,6 +4,7 @@ namespace SehrGut\EloQuery\Operations;
 
 use Illuminate\Database\Eloquent\Builder;
 use SehrGut\EloQuery\Contracts\Operation;
+use SehrGut\EloQuery\OperationResult;
 
 class Sort implements Operation
 {
@@ -37,11 +38,13 @@ class Sort implements Operation
      * Apply the sort order to a query builder.
      *
      * @param Builder $builder
-     * @return void
+     * @return OperationResult|null
      */
-    public function applyToBuilder(Builder $builder)
+    public function applyToBuilder(Builder $builder): ?OperationResult
     {
         $builder->orderBy($this->attribute, $this->getDirection());
+
+        return null;
     }
 
     /**

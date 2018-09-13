@@ -4,6 +4,7 @@ namespace SehrGut\EloQuery\Constraints;
 
 use Illuminate\Database\Eloquent\Builder;
 use SehrGut\EloQuery\Contracts\Operation;
+use SehrGut\EloQuery\OperationResult;
 
 abstract class AbstractConstraint implements Operation
 {
@@ -55,9 +56,11 @@ abstract class AbstractConstraint implements Operation
      * @param Builder $builder
      * @return void
      */
-    public function applyToBuilder(Builder $builder)
+    public function applyToBuilder(Builder $builder): ?OperationResult
     {
         $builder->{$this->getBuilderMethod()}(...$this->getBuilderArguments());
+
+        return null;
     }
 
     /**

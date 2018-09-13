@@ -4,6 +4,7 @@ namespace SehrGut\EloQuery\Operations;
 
 use Illuminate\Database\Eloquent\Builder;
 use SehrGut\EloQuery\Contracts\Operation;
+use SehrGut\EloQuery\OperationResult;
 use SehrGut\EloQuery\Operators;
 
 class Filter implements Operation
@@ -82,9 +83,9 @@ class Filter implements Operation
      * Apply the filter to a query builder.
      *
      * @param Builder $builder
-     * @return void
+     * @return OperationResult|null
      */
-    public function applyToBuilder(Builder $builder)
+    public function applyToBuilder(Builder $builder): ?OperationResult
     {
         if ($this->actsOnRelation()) {
             $builder->whereHas($this->getRelation(), function ($relatedBuilder) {
@@ -93,6 +94,8 @@ class Filter implements Operation
         } else {
             $this->apply($builder);
         }
+
+        return null;
     }
 
     /**

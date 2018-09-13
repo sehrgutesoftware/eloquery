@@ -4,6 +4,7 @@ namespace SehrGut\EloQuery;
 
 use Illuminate\Database\Eloquent\Builder;
 use SehrGut\EloQuery\Contracts\Operation;
+use SehrGut\EloQuery\OperationResult;
 use SehrGut\EloQuery\Operations\Paginate;
 
 class OperationCollection implements Operation
@@ -71,16 +72,24 @@ class OperationCollection implements Operation
      * Apply all operations in the collection to the builder.
      *
      * @param Builder $builder
-     * @return void
+     * @return OperationResult
      */
-    public function applyToBuilder(Builder $builder)
+    public function applyToBuilder(Builder $builder): OperationResult
     {
         // Ensure that Paginate operations are applied last
         usort($this->items, [$this, 'sortComparator']);
 
+        $result = new OperationResult();
+
         foreach ($this->items as $operation) {
-            $operation->applyToBuilder($builder);
+            $iterationResult = $operation->applyToBuilder($builder);
+
+            if ($iterationResult instanceof OperationResult) {
+                $result->merge($iterationResult);
+            }
         }
+
+        return $result;
     }
 
     /**

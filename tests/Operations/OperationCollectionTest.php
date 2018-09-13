@@ -101,7 +101,8 @@ class OperationCollectionTest extends OperationTestCase
         foreach ($operations as $operation) {
             $operation->shouldReceive('applyToBuilder')
                 ->once()
-                ->with($builder);
+                ->with($builder)
+                ->andReturn(null);
         }
 
         $collection = new OperationCollection($operations);
