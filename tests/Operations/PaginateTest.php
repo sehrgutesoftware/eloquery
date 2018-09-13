@@ -14,8 +14,18 @@ class PaginateTest extends OperationTestCase
         $this->builder->shouldReceive('offset')
             ->once()
             ->with(45);
+        $this->builder->shouldReceive('count')
+            ->once()
+            ->andReturn(61);
 
         $paginate = new Paginate(15, 4);
-        $paginate->applyToBuilder($this->builder);
+        $result = $paginate->applyToBuilder($this->builder);
+
+        $this->assertEquals([
+            'page' => 4,
+            'limit' => 15,
+            'total' => 61,
+            'last_page' => 5,
+        ], $result->getPaginationMeta());
     }
 }

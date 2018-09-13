@@ -51,9 +51,16 @@ class Paginate implements Operation
      */
     public function applyToBuilder(Builder $builder): ?OperationResult
     {
+        $total = $builder->count();
+
         $builder->limit($this->limit);
         $builder->offset(($this->page - 1) * $this->limit);
 
-        return null;
+        return new OperationResult([
+            'limit' => $this->limit,
+            'page' => $this->page,
+            'total' => $total,
+            'last_page' => (int) ceil($total / $this->limit),
+        ]);
     }
 }
