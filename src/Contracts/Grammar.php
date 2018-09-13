@@ -1,6 +1,6 @@
 <?php
 
-namespace SehrGut\EloQuery\Contracts;
+namespace SehrGut\Eloquery\Contracts;
 
 use Illuminate\Http\Request;
 

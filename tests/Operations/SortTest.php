@@ -1,8 +1,8 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests\Operations;
+namespace SehrGut\Eloquery\Tests\Operations;
 
-use SehrGut\EloQuery\Operations\Sort;
+use SehrGut\Eloquery\Operations\Sort;
 
 class SortTest extends OperationTestCase
 {

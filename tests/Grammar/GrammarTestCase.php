@@ -1,10 +1,10 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests\Grammar;
+namespace SehrGut\Eloquery\Tests\Grammar;
 
 use Illuminate\Http\Request;
 use Mockery;
-use SehrGut\EloQuery\Tests\TestCase;
+use SehrGut\Eloquery\Tests\TestCase;
 
 class GrammarTestCase extends TestCase
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests;
+namespace SehrGut\Eloquery\Tests;
 
 use Illuminate\Http\Request;
-use SehrGut\EloQuery\OperationCollection;
-use SehrGut\EloQuery\Operations\Filter;
-use SehrGut\EloQuery\Operations\Paginate;
-use SehrGut\EloQuery\Operations\Sort;
-use SehrGut\EloQuery\Operators;
-use SehrGut\EloQuery\RequestParser;
+use SehrGut\Eloquery\OperationCollection;
+use SehrGut\Eloquery\Operations\Filter;
+use SehrGut\Eloquery\Operations\Paginate;
+use SehrGut\Eloquery\Operations\Sort;
+use SehrGut\Eloquery\Operators;
+use SehrGut\Eloquery\RequestParser;
 
 class RequestParserTest extends TestCase
 {

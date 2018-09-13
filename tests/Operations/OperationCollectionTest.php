@@ -1,11 +1,11 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests\Operations;
+namespace SehrGut\Eloquery\Tests\Operations;
 
 use Illuminate\Database\Eloquent\Builder;
 use Mockery;
-use SehrGut\EloQuery\Contracts\Operation;
-use SehrGut\EloQuery\OperationCollection;
+use SehrGut\Eloquery\Contracts\Operation;
+use SehrGut\Eloquery\OperationCollection;
 
 class OperationCollectionTest extends OperationTestCase
 {

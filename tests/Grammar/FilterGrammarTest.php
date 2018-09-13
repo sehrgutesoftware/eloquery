@@ -1,9 +1,9 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests\Grammar;
+namespace SehrGut\Eloquery\Tests\Grammar;
 
-use SehrGut\EloQuery\Grammar\FilterGrammar;
-use SehrGut\EloQuery\Operators;
+use SehrGut\Eloquery\Grammar\FilterGrammar;
+use SehrGut\Eloquery\Operators;
 
 class FilterGrammarTest extends GrammarTestCase
 {

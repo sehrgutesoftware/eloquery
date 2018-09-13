@@ -1,8 +1,8 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests\Operations;
+namespace SehrGut\Eloquery\Tests\Operations;
 
-use SehrGut\EloQuery\Operations\Paginate;
+use SehrGut\Eloquery\Operations\Paginate;
 
 class PaginateTest extends OperationTestCase
 {

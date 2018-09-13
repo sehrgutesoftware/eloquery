@@ -1,10 +1,10 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests\Operations;
+namespace SehrGut\Eloquery\Tests\Operations;
 
 use Illuminate\Database\Eloquent\Builder;
 use Mockery;
-use SehrGut\EloQuery\Tests\TestCase;
+use SehrGut\Eloquery\Tests\TestCase;
 
 class OperationTestCase extends TestCase
 {

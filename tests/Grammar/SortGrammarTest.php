@@ -1,8 +1,8 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests\Grammar;
+namespace SehrGut\Eloquery\Tests\Grammar;
 
-use SehrGut\EloQuery\Grammar\SortGrammar;
+use SehrGut\Eloquery\Grammar\SortGrammar;
 
 class SortGrammarTest extends GrammarTestCase
 {

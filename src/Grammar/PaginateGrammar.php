@@ -1,9 +1,9 @@
 <?php
 
-namespace SehrGut\EloQuery\Grammar;
+namespace SehrGut\Eloquery\Grammar;
 
 use Illuminate\Http\Request;
-use SehrGut\EloQuery\Contracts\Grammar;
+use SehrGut\Eloquery\Contracts\Grammar;
 use UnexpectedValueException;
 
 /**

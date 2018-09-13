@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SehrGut\\EloQuery\\": "src/"
+            "SehrGut\\Eloquery\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SehrGut\\EloQuery\\Tests\\": "tests/"
+            "SehrGut\\Eloquery\\Tests\\": "tests/"
         }
     },
     "scripts": {

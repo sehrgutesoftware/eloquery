@@ -1,14 +1,14 @@
 <?php
 
-namespace SehrGut\EloQuery;
+namespace SehrGut\Eloquery;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use SebastianBergmann\ObjectReflector\InvalidArgumentException;
-use SehrGut\EloQuery\Contracts\Grammar;
-use SehrGut\EloQuery\Operations\Filter;
-use SehrGut\EloQuery\Operations\Paginate;
-use SehrGut\EloQuery\Operations\Sort;
+use SehrGut\Eloquery\Contracts\Grammar;
+use SehrGut\Eloquery\Operations\Filter;
+use SehrGut\Eloquery\Operations\Paginate;
+use SehrGut\Eloquery\Operations\Sort;
 
 class RequestParser
 {
@@ -32,9 +32,9 @@ class RequestParser
      * @var array
      */
     protected $grammar = [
-        'paginate' => \SehrGut\EloQuery\Grammar\PaginateGrammar::class,
-        'filter' => \SehrGut\EloQuery\Grammar\FilterGrammar::class,
-        'sort' => \SehrGut\EloQuery\Grammar\SortGrammar::class,
+        'paginate' => \SehrGut\Eloquery\Grammar\PaginateGrammar::class,
+        'filter' => \SehrGut\Eloquery\Grammar\FilterGrammar::class,
+        'sort' => \SehrGut\Eloquery\Grammar\SortGrammar::class,
     ];
 
     /**

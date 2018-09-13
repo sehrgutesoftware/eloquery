@@ -1,9 +1,9 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests\Operations;
+namespace SehrGut\Eloquery\Tests\Operations;
 
-use SehrGut\EloQuery\Operations\Filter;
-use SehrGut\EloQuery\Operators;
+use SehrGut\Eloquery\Operations\Filter;
+use SehrGut\Eloquery\Operators;
 
 class FilterTest extends OperationTestCase
 {

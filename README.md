@@ -22,7 +22,7 @@
 ```php
 use App\Models\Book;
 use Illuminate\Routing\Controller;
-use SehrGut\EloQuery\RequestParser;
+use SehrGut\Eloquery\RequestParser;
 
 class BooksController extends Controller
 {
@@ -31,7 +31,7 @@ class BooksController extends Controller
      */
     public function index(RequestParser $parser)
     {
-        $builder = Book::newQuery();
+        $builder = Book::query();
 
         $operations = $parser->extractOperations();
         $operations->applyToBuilder($builder);

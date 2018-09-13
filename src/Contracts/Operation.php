@@ -1,9 +1,9 @@
 <?php
 
-namespace SehrGut\EloQuery\Contracts;
+namespace SehrGut\Eloquery\Contracts;
 
 use Illuminate\Database\Eloquent\Builder;
-use SehrGut\EloQuery\OperationResult;
+use SehrGut\Eloquery\OperationResult;
 
 /**
  * Describes an operation on a Query Builder, like eg. a filter constraint or sort order.

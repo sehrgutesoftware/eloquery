@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.2.0
+- Change namespace from `SehrGut\EloQuery` to `SehrGut\Eloquery`
+
 ### v0.1.4
 - `applyToBuilder()` methods now return an `OperationResult` which can contain pagination meta data
 - Drop support for PHP 7.0

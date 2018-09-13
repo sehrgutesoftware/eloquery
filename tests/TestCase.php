@@ -1,6 +1,6 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests;
+namespace SehrGut\Eloquery\Tests;
 
 use Illuminate\Database\Eloquent\Builder;
 use Mockery;

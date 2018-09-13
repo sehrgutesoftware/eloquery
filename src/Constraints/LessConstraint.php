@@ -1,6 +1,6 @@
 <?php
 
-namespace SehrGut\EloQuery\Constraints;
+namespace SehrGut\Eloquery\Constraints;
 
 class LessConstraint extends AbstractConstraint
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace SehrGut\EloQuery;
+namespace SehrGut\Eloquery;
 
 use Illuminate\Database\Eloquent\Builder;
-use SehrGut\EloQuery\Contracts\Operation;
-use SehrGut\EloQuery\OperationResult;
-use SehrGut\EloQuery\Operations\Paginate;
+use SehrGut\Eloquery\Contracts\Operation;
+use SehrGut\Eloquery\OperationResult;
+use SehrGut\Eloquery\Operations\Paginate;
 
 class OperationCollection implements Operation
 {

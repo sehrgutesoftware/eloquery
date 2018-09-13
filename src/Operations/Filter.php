@@ -1,11 +1,11 @@
 <?php
 
-namespace SehrGut\EloQuery\Operations;
+namespace SehrGut\Eloquery\Operations;
 
 use Illuminate\Database\Eloquent\Builder;
-use SehrGut\EloQuery\Contracts\Operation;
-use SehrGut\EloQuery\OperationResult;
-use SehrGut\EloQuery\Operators;
+use SehrGut\Eloquery\Contracts\Operation;
+use SehrGut\Eloquery\OperationResult;
+use SehrGut\Eloquery\Operators;
 
 class Filter implements Operation
 {
@@ -43,16 +43,16 @@ class Filter implements Operation
      * @var array
      */
     protected static $constraints = [
-        Operators::EQUALS => \SehrGut\EloQuery\Constraints\EqualsConstraint::class,
-        Operators::CONTAINS => \SehrGut\EloQuery\Constraints\ContainsConstraint::class,
-        Operators::STARTS_WITH => \SehrGut\EloQuery\Constraints\StartsWithConstraint::class,
-        Operators::ENDS_WITH => \SehrGut\EloQuery\Constraints\EndsWithConstraint::class,
-        Operators::GREATER => \SehrGut\EloQuery\Constraints\GreaterConstraint::class,
-        Operators::GREATER_EQUAL => \SehrGut\EloQuery\Constraints\GreaterEqualConstraint::class,
-        Operators::LESS => \SehrGut\EloQuery\Constraints\LessConstraint::class,
-        Operators::LESS_EQUAL => \SehrGut\EloQuery\Constraints\LessEqualConstraint::class,
-        Operators::IN => \SehrGut\EloQuery\Constraints\InConstraint::class,
-        Operators::BETWEEN => \SehrGut\EloQuery\Constraints\BetweenConstraint::class,
+        Operators::EQUALS => \SehrGut\Eloquery\Constraints\EqualsConstraint::class,
+        Operators::CONTAINS => \SehrGut\Eloquery\Constraints\ContainsConstraint::class,
+        Operators::STARTS_WITH => \SehrGut\Eloquery\Constraints\StartsWithConstraint::class,
+        Operators::ENDS_WITH => \SehrGut\Eloquery\Constraints\EndsWithConstraint::class,
+        Operators::GREATER => \SehrGut\Eloquery\Constraints\GreaterConstraint::class,
+        Operators::GREATER_EQUAL => \SehrGut\Eloquery\Constraints\GreaterEqualConstraint::class,
+        Operators::LESS => \SehrGut\Eloquery\Constraints\LessConstraint::class,
+        Operators::LESS_EQUAL => \SehrGut\Eloquery\Constraints\LessEqualConstraint::class,
+        Operators::IN => \SehrGut\Eloquery\Constraints\InConstraint::class,
+        Operators::BETWEEN => \SehrGut\Eloquery\Constraints\BetweenConstraint::class,
     ];
 
     /**

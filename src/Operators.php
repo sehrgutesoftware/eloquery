@@ -1,6 +1,6 @@
 <?php
 
-namespace SehrGut\EloQuery;
+namespace SehrGut\Eloquery;
 
 use ReflectionClass;
 

@@ -12,7 +12,7 @@ $versions = Sami\Version\GitVersionCollection::create($dir)
 
 $options = [
     'theme' => 'default',
-    'title' => 'EloQuery API Documentation',
+    'title' => 'Eloquery API Documentation',
     'versions' => $versions,
     'build_dir' => __DIR__ . '/api/%version%',
     'cache_dir' => __DIR__ . '/cache/%version%',

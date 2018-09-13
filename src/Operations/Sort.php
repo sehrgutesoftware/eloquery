@@ -1,10 +1,10 @@
 <?php
 
-namespace SehrGut\EloQuery\Operations;
+namespace SehrGut\Eloquery\Operations;
 
 use Illuminate\Database\Eloquent\Builder;
-use SehrGut\EloQuery\Contracts\Operation;
-use SehrGut\EloQuery\OperationResult;
+use SehrGut\Eloquery\Contracts\Operation;
+use SehrGut\Eloquery\OperationResult;
 
 class Sort implements Operation
 {

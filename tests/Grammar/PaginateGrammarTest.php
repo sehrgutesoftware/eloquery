@@ -1,10 +1,10 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests\Grammar;
+namespace SehrGut\Eloquery\Tests\Grammar;
 
 use Illuminate\Http\Request;
 use Mockery;
-use SehrGut\EloQuery\Grammar\PaginateGrammar;
+use SehrGut\Eloquery\Grammar\PaginateGrammar;
 
 class PaginateGrammarTest extends GrammarTestCase
 {

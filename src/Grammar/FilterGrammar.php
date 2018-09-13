@@ -1,11 +1,11 @@
 <?php
 
-namespace SehrGut\EloQuery\Grammar;
+namespace SehrGut\Eloquery\Grammar;
 
 use Illuminate\Http\Request;
-use SehrGut\EloQuery\Contracts\Grammar;
-use SehrGut\EloQuery\Operations\Filter;
-use SehrGut\EloQuery\Operators;
+use SehrGut\Eloquery\Contracts\Grammar;
+use SehrGut\Eloquery\Operations\Filter;
+use SehrGut\Eloquery\Operators;
 use UnexpectedValueException;
 
 /**

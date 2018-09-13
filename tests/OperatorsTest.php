@@ -1,8 +1,8 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests;
+namespace SehrGut\Eloquery\Tests;
 
-use SehrGut\EloQuery\Operators;
+use SehrGut\Eloquery\Operators;
 
 class OperatorsTest extends TestCase
 {

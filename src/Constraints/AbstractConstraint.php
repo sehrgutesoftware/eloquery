@@ -1,10 +1,10 @@
 <?php
 
-namespace SehrGut\EloQuery\Constraints;
+namespace SehrGut\Eloquery\Constraints;
 
 use Illuminate\Database\Eloquent\Builder;
-use SehrGut\EloQuery\Contracts\Operation;
-use SehrGut\EloQuery\OperationResult;
+use SehrGut\Eloquery\Contracts\Operation;
+use SehrGut\Eloquery\OperationResult;
 
 abstract class AbstractConstraint implements Operation
 {
