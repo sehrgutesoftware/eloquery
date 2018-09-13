@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use SebastianBergmann\ObjectReflector\InvalidArgumentException;
 use SehrGut\EloQuery\Contracts\Grammar;
+use SehrGut\EloQuery\Operations\Filter;
 use SehrGut\EloQuery\Operations\Paginate;
+use SehrGut\EloQuery\Operations\Sort;
 
 class RequestParser
 {
@@ -75,9 +77,11 @@ class RequestParser
     {
         $grammar = $this->getGrammarForOperation('paginate');
 
-        $params = $grammar->extract($request);
+        $params = $grammar->extract($this->request);
 
-        return new Paginate($params['limit'], $params['page']);
+        return new OperationCollection([
+            new Paginate($params['limit'], $params['page'])
+        ]);
     }
 
     /**
@@ -91,7 +95,7 @@ class RequestParser
 
         $filters = array_map(function ($f) {
             return new Filter($f['key'], $f['value'], $f['operator'], $f['negated']);
-        }, $grammar->extract($request));
+        }, $grammar->extract($this->request));
 
         return new OperationCollection($filters);
     }
@@ -106,8 +110,8 @@ class RequestParser
         $grammar = $this->getGrammarForOperation('sort');
 
         $sort = array_map(function ($sort) {
-            return new Sort($sort['key'], $sort['direction']);
-        }, $grammar->extract($request));
+            return new Sort($sort['key'], $sort['direction'] === 'ASC');
+        }, $grammar->extract($this->request));
 
         return new OperationCollection($sort);
     }
@@ -120,7 +124,7 @@ class RequestParser
      */
     protected function getOperationsForComponent(string $component): OperationCollection
     {
-        if (!array_key_exists($component, static::ALLOWED_COMPONENTS)) {
+        if (!in_array($component, static::ALLOWED_COMPONENTS)) {
             throw new InvalidArgumentException(sprintf(
                 '%s is not an allowed component (%s)',
                 $component,

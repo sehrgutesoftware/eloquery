@@ -13,28 +13,28 @@ class Filter implements Operation
      *
      * @var string
      */
-    protected $attribute;
+    public $attribute;
 
     /**
      * The value against which this filter compares.
      *
      * @var mixed
      */
-    protected $value;
+    public $value;
+
+    /**
+     * The filter operator.
+     *
+     * @var bool
+     */
+    public $operator = 'EQUALS';
 
     /**
      * Whether the filter is negated (logical not).
      *
      * @var bool
      */
-    protected $operator = '=';
-
-    /**
-     * Whether the filter is negated (logical not).
-     *
-     * @var bool
-     */
-    protected $negated = false;
+    public $negated = false;
 
     /**
      * Constraints by operator.
@@ -65,7 +65,7 @@ class Filter implements Operation
     public function __construct(
         string $attribute,
         $value,
-        string $operator = '=',
+        string $operator = 'EQUALS',
         bool $negated = false
     ) {
         if (!array_key_exists($operator, static::$constraints)) {

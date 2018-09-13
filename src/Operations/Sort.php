@@ -12,14 +12,14 @@ class Sort implements Operation
      *
      * @var string
      */
-    protected $attribute;
+    public $attribute;
 
     /**
      * Sort direction.
      *
      * @var bool
      */
-    protected $ascending = true;
+    public $ascending = true;
 
     /**
      * Construct a Sort instance.

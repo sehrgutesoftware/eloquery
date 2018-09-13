@@ -25,6 +25,10 @@ class FilterGrammar implements Grammar
     {
         $filters = $request->get('filter');
 
+        if (is_null($filters)) {
+            return [];
+        }
+
         $this->validate($filters);
 
         return $this->fillWithDefaults($filters);
@@ -69,7 +73,9 @@ class FilterGrammar implements Grammar
     {
         foreach ($filters as &$filter) {
             // Default operator
-            if (!isset($filter['operator'])) {
+            if (isset($filter['operator'])) {
+                $filter['operator'] = strtoupper($filter['operator']);
+            } else {
                 $filter['operator'] = Operators::EQUALS;
             }
 

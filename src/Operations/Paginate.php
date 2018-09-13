@@ -13,14 +13,14 @@ class Paginate implements Operation
      *
      * @var int
      */
-    protected $limit;
+    public $limit;
 
     /**
      * Current page number (1-indexed).
      *
      * @var int
      */
-    protected $page = 1;
+    public $page = 1;
 
     /**
      * Construct a Paginate instance.

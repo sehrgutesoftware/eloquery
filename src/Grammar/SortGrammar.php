@@ -9,7 +9,7 @@ use UnexpectedValueException;
 /**
  * Rules for extracting sort orders from a Request.
  *
- * Syntax: `?sort[][key]=first_name&sort[][direction]=asc`
+ * Syntax: `?sort[][key]=first_name&sort[][direction]=ASC`
  */
 class SortGrammar implements Grammar
 {
@@ -22,6 +22,10 @@ class SortGrammar implements Grammar
     public function extract(Request $request): array
     {
         $sorts = $request->get('sort');
+
+        if (is_null($sorts)) {
+            return [];
+        }
 
         $this->validate($sorts);
 
@@ -63,7 +67,9 @@ class SortGrammar implements Grammar
     {
         foreach ($sorts as &$sort) {
             // Default direction
-            if (!isset($sort['direction'])) {
+            if (isset($sort['direction'])) {
+                $sort['direction'] = strtoupper($sort['direction']);
+            } else {
                 $sort['direction'] = 'ASC';
             }
         }
