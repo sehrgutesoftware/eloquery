@@ -1,11 +1,21 @@
-# eloquery (WIP)
+# eloquery
 
 [![Build Status](https://travis-ci.org/sehrgutesoftware/eloquery.svg?branch=master)](https://travis-ci.org/sehrgutesoftware/eloquery)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/2a41564ac07501a7bd66/test_coverage)](https://codeclimate.com/github/sehrgutesoftware/eloquery/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2a41564ac07501a7bd66/maintainability)](https://codeclimate.com/github/sehrgutesoftware/eloquery/maintainability)
 [![Latest Stable Version](https://poser.pugx.org/sehrgut/eloquery/v/stable)](https://packagist.org/packages/sehrgut/eloquery)
 
-> Apply query parameters (filter, sort, paginate, eager-load) to a Laravel Eloquent query builder.
+## Table of Contents
+- [Usage](#usage)
+    - [Example usage directly in Controller](#example-usage-directly-in-controller)
+- [API Documentation](#api-documentation)
+- [Changelog](#changelog)
+- [Todo](#todo)
+- [Compatibility](#compatibility)
+- [Testing](#testing)
+- [Generate API Docs](#generate-api-docs)
+- [Alternatives](#alternatives)
+- [License](#license)
 
 ## Usage
 ### Example usage directly in Controller
