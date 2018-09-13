@@ -2,6 +2,7 @@
 
 ### v0.1.4
 - `applyToBuilder()` methods now return an `OperationResult` which can contain pagination meta data
+- Drop support for PHP 7.0
 
 ### v0.1.3
 - Replace `Database\Builder` with `Eloquent\Builder` in type checks
