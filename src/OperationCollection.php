@@ -2,7 +2,7 @@
 
 namespace SehrGut\EloQuery;
 
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use SehrGut\EloQuery\Contracts\Operation;
 
 class OperationCollection implements Operation

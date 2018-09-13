@@ -2,7 +2,7 @@
 
 namespace SehrGut\EloQuery\Operations;
 
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Psr\Log\InvalidArgumentException;
 use SehrGut\EloQuery\Contracts\Operation;
 

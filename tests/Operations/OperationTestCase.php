@@ -2,7 +2,7 @@
 
 namespace SehrGut\EloQuery\Tests\Operations;
 
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Mockery;
 use SehrGut\EloQuery\Tests\TestCase;
 

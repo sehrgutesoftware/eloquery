@@ -2,7 +2,7 @@
 
 namespace SehrGut\EloQuery\Contracts;
 
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Describes an operation on a Query Builder, like eg. a filter constraint or sort order.

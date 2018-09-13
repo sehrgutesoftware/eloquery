@@ -2,7 +2,7 @@
 
 namespace SehrGut\EloQuery\Constraints;
 
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use SehrGut\EloQuery\Contracts\Operation;
 
 abstract class AbstractConstraint implements Operation

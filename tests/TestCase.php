@@ -2,7 +2,7 @@
 
 namespace SehrGut\EloQuery\Tests;
 
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 use Mockery;
 use PHPUnit\Framework\TestCase as PhpUnitTestCase;
 
