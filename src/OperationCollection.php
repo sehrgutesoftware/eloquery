@@ -4,6 +4,7 @@ namespace SehrGut\EloQuery;
 
 use Illuminate\Database\Eloquent\Builder;
 use SehrGut\EloQuery\Contracts\Operation;
+use SehrGut\EloQuery\Operations\Paginate;
 
 class OperationCollection implements Operation
 {
@@ -74,6 +75,9 @@ class OperationCollection implements Operation
      */
     public function applyToBuilder(Builder $builder)
     {
+        // Ensure that Paginate operations are applied last
+        usort($this->items, [$this, 'sortComparator']);
+
         foreach ($this->items as $operation) {
             $operation->applyToBuilder($builder);
         }
@@ -91,5 +95,27 @@ class OperationCollection implements Operation
     protected function append(Operation $operation)
     {
         $this->items[] = $operation;
+    }
+
+    /**
+     * Comparator function for sorting operations.
+     *
+     * Sorts pagination operations last.
+     *
+     * @param  Operation $a
+     * @param  Operation $b
+     * @return int
+     */
+    protected function sortComparator(Operation $a, Operation $b)
+    {
+        if ($a instanceof Paginate) {
+            return 1;
+        }
+
+        if ($b instanceof Paginate) {
+            return -1;
+        }
+
+        return 0;
     }
 }
