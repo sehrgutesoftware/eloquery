@@ -3,6 +3,7 @@
 namespace SehrGut\EloQuery\Grammar;
 
 use Illuminate\Http\Request;
+use SehrGut\EloQuery\Contracts\Grammar;
 use SehrGut\EloQuery\Operations\Filter;
 use SehrGut\EloQuery\Operators;
 use UnexpectedValueException;
@@ -12,15 +13,15 @@ use UnexpectedValueException;
  *
  * Syntax: `?filter[][key]=first_name&filter[][value]=John+Doe&filter[][operator]=equals&filter[][negated]=false`
  */
-class FilterGrammar
+class FilterGrammar implements Grammar
 {
     /**
      * Extract an array of filter options from the request.
      *
      * @param Request $request
-     * @return void
+     * @return array
      */
-    public function extract(Request $request)
+    public function extract(Request $request): array
     {
         $filters = $request->get('filter');
 

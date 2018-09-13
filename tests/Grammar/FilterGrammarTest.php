@@ -1,24 +1,12 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests;
+namespace SehrGut\EloQuery\Tests\Grammar;
 
-use Illuminate\Http\Request;
-use Mockery;
 use SehrGut\EloQuery\Grammar\FilterGrammar;
-use SehrGut\EloQuery\Operations\Filter;
 use SehrGut\EloQuery\Operators;
 
-class FilterGrammarTest extends TestCase
+class FilterGrammarTest extends GrammarTestCase
 {
-    protected $request;
-
-    public function setUp()
-    {
-        parent::setUp();
-
-        $this->request = Mockery::mock(Request::class);
-    }
-
     public function test_it_extracts_filters_from_request()
     {
         $this->request->shouldReceive('get')

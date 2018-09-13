@@ -1,10 +1,10 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests;
+namespace SehrGut\EloQuery\Tests\Operations;
 
 use SehrGut\EloQuery\Operations\Sort;
 
-class SortTest extends TestCase
+class SortTest extends OperationTestCase
 {
     public function test_it_applies_sort_order_to_builder()
     {

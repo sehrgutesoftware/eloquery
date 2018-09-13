@@ -1,10 +1,10 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests;
+namespace SehrGut\EloQuery\Tests\Operations;
 
 use SehrGut\EloQuery\Operations\Paginate;
 
-class PaginateTest extends TestCase
+class PaginateTest extends OperationTestCase
 {
     public function test_it_applies_pagination_constraints_to_builder()
     {
@@ -15,7 +15,7 @@ class PaginateTest extends TestCase
             ->once()
             ->with(45);
 
-        $sort = new Paginate(15, 4);
-        $sort->applyToBuilder($this->builder);
+        $paginate = new Paginate(15, 4);
+        $paginate->applyToBuilder($this->builder);
     }
 }

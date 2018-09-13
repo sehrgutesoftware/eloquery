@@ -1,11 +1,11 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests;
+namespace SehrGut\EloQuery\Tests\Operations;
 
 use SehrGut\EloQuery\Operations\Filter;
 use SehrGut\EloQuery\Operators;
 
-class FilterTest extends TestCase
+class FilterTest extends OperationTestCase
 {
     /**
      * @expectedException InvalidArgumentException

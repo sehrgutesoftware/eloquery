@@ -1,13 +1,13 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests;
+namespace SehrGut\EloQuery\Tests\Operations;
 
 use Illuminate\Database\Query\Builder;
 use Mockery;
 use SehrGut\EloQuery\Contracts\Operation;
 use SehrGut\EloQuery\OperationCollection;
 
-class OperationCollectionTest extends TestCase
+class OperationCollectionTest extends OperationTestCase
 {
     /**
      * @expectedException TypeError

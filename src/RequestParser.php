@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use SebastianBergmann\ObjectReflector\InvalidArgumentException;
 use SehrGut\EloQuery\Contracts\Grammar;
+use SehrGut\EloQuery\Operations\Paginate;
 
 class RequestParser
 {
@@ -29,6 +30,7 @@ class RequestParser
      * @var array
      */
     protected $grammar = [
+        'paginate' => \SehrGut\EloQuery\Grammar\PaginateGrammar::class,
         'filter' => \SehrGut\EloQuery\Grammar\FilterGrammar::class,
         'sort' => \SehrGut\EloQuery\Grammar\SortGrammar::class,
     ];
@@ -62,6 +64,20 @@ class RequestParser
         }
 
         return $operations;
+    }
+
+    /**
+     * Extract pagination parameters from the request.
+     *
+     * @return OperationCollection
+     */
+    public function extractPaginate(): OperationCollection
+    {
+        $grammar = $this->getGrammarForOperation('paginate');
+
+        $params = $grammar->extract($request);
+
+        return new Paginate($params['limit'], $params['page']);
     }
 
     /**

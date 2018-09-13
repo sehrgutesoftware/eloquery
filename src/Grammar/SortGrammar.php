@@ -3,6 +3,7 @@
 namespace SehrGut\EloQuery\Grammar;
 
 use Illuminate\Http\Request;
+use SehrGut\EloQuery\Contracts\Grammar;
 use UnexpectedValueException;
 
 /**
@@ -10,15 +11,15 @@ use UnexpectedValueException;
  *
  * Syntax: `?sort[][key]=first_name&sort[][direction]=asc`
  */
-class SortGrammar
+class SortGrammar implements Grammar
 {
     /**
      * Extract an array of sort options from the request.
      *
      * @param Request $request
-     * @return void
+     * @return array
      */
-    public function extract(Request $request)
+    public function extract(Request $request): array
     {
         $sorts = $request->get('sort');
 

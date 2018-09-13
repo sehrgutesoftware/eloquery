@@ -1,23 +1,11 @@
 <?php
 
-namespace SehrGut\EloQuery\Tests;
+namespace SehrGut\EloQuery\Tests\Grammar;
 
-use Illuminate\Http\Request;
-use Mockery;
 use SehrGut\EloQuery\Grammar\SortGrammar;
-use SehrGut\EloQuery\Operations\Sort;
 
-class SortGrammarTest extends TestCase
+class SortGrammarTest extends GrammarTestCase
 {
-    protected $request;
-
-    public function setUp()
-    {
-        parent::setUp();
-
-        $this->request = Mockery::mock(Request::class);
-    }
-
     public function test_it_extracts_sorts_from_request()
     {
         $this->request->shouldReceive('get')

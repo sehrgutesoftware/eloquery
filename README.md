@@ -12,7 +12,6 @@
 ### Example usage directly in Controller
 ```php
 use App\Models\Book;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use SehrGut\EloQuery\RequestParser;
 
@@ -21,7 +20,7 @@ class BooksController extends Controller
     /**
      * List all records of type `Book`.
      */
-    public function index(Request $request, RequestParser $parser)
+    public function index(RequestParser $parser)
     {
         $builder = Book::newQuery();
 

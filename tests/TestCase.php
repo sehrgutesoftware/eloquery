@@ -8,15 +8,6 @@ use PHPUnit\Framework\TestCase as PhpUnitTestCase;
 
 class TestCase extends PhpUnitTestCase
 {
-    protected $builder;
-
-    public function setUp()
-    {
-        parent::setUp();
-
-        $this->builder = Mockery::mock(Builder::class);
-    }
-
     public function tearDown()
     {
         parent::tearDown();
