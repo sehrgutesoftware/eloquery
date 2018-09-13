@@ -34,7 +34,7 @@ class SortGrammar implements Grammar
      * @param array $sorts
      * @return void
      */
-    protected function validate($sorts) : void
+    protected function validate($sorts)
     {
         if (!is_array($sorts)) {
             throw new UnexpectedValueException('sort must be an array, eg. [["key" => "someField", "direction" => "desc"], […], …');
@@ -59,7 +59,7 @@ class SortGrammar implements Grammar
      * @param array $sorts
      * @return array
      */
-    protected function fillWithDefaults(array $sorts) : array
+    protected function fillWithDefaults(array $sorts): array
     {
         foreach ($sorts as &$sort) {
             // Default direction

@@ -36,7 +36,7 @@ class FilterGrammar implements Grammar
      * @param array $filters
      * @return void
      */
-    protected function validate($filters) : void
+    protected function validate($filters)
     {
         if (!is_array($filters)) {
             throw new UnexpectedValueException('filter must be an array, eg. [["key" => "someField", "value" => "desiredValue", "operator" => "equals"], […], …');
@@ -65,7 +65,7 @@ class FilterGrammar implements Grammar
      * @param array $filters
      * @return array
      */
-    protected function fillWithDefaults(array $filters) : array
+    protected function fillWithDefaults(array $filters): array
     {
         foreach ($filters as &$filter) {
             // Default operator
