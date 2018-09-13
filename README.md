@@ -7,13 +7,6 @@
 
 > Apply query parameters (filter, sort, paginate, eager-load) to a Laravel Eloquent query builder.
 
-## Todo
-- [ ] Refactor: Throw custom exception when parameters are invalid / insufficient
-- [ ] Implement Paginate & Include grammar
-- [ ] Implement Include operation
-- [ ] Refactor: Query params should be customizable
-- [ ] Document query params syntax/usage
-
 ## Usage
 ### Example usage directly in Controller
 ```php
@@ -38,11 +31,20 @@ class BooksController extends Controller
 }
 ```
 
+## API Documentation
+[https://sehrgutesoftware.github.io/eloquery/api/v0.1.1/](https://sehrgutesoftware.github.io/eloquery/api/v0.1.1/)
+
 ## Changelog
 Please refer to [CHANGELOG.md](CHANGELOG.md).
 
+## Todo
+- [ ] Refactor: Throw custom exception when parameters are invalid / insufficient
+- [ ] Implement "include" grammar & operation
+- [ ] Refactor: Query params should be customizable
+- [ ] Document query params syntax/usage
+
 ## Compatibility
-> TBD
+Tested with PHP 7.0, 7.1, 7.2
 
 ## Testing
 ```bash
