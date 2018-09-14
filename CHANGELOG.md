@@ -2,6 +2,7 @@
 
 ### v0.2.0
 - Change namespace from `SehrGut\EloQuery` to `SehrGut\Eloquery`
+- Add Facade and Service Provider
 
 ### v0.1.4
 - `applyToBuilder()` methods now return an `OperationResult` which can contain pagination meta data
