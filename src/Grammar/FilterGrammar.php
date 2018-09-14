@@ -50,19 +50,30 @@ class FilterGrammar implements Grammar
         }
 
         foreach ($filters as $filter) {
-            // Ensure that key and value are present
-            if (!isset($filter['key']) or !isset($filter['value'])) {
-                throw new UnexpectedValueException('each filter must contain both key and value');
-            }
+            $this->validateFilter($filter);
+        }
+    }
 
-            // Ensure that operator is valid
-            if (isset($filter['operator']) and !Operators::exists(strtoupper($filter['operator']))) {
-                throw new UnexpectedValueException(sprintf(
-                    'Invalid filter operator (%s). Must be one of (%s)',
-                    $filter['operator'],
-                    implode(', ', Operators::all())
-                ));
-            }
+    /**
+     * Validate a single filter.
+     *
+     * @param  array  $filter
+     * @return void
+     */
+    protected function validateFilter(array $filter)
+    {
+        // Ensure that key and value are present
+        if (!isset($filter['key']) or !isset($filter['value'])) {
+            throw new UnexpectedValueException('each filter must contain both key and value');
+        }
+
+        // Ensure that operator is valid
+        if (isset($filter['operator']) and !Operators::exists(strtoupper($filter['operator']))) {
+            throw new UnexpectedValueException(sprintf(
+                'Invalid filter operator (%s). Must be one of (%s)',
+                $filter['operator'],
+                implode(', ', Operators::all())
+            ));
         }
     }
 

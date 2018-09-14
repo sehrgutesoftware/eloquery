@@ -47,15 +47,26 @@ class SortGrammar implements Grammar
         }
 
         foreach ($sorts as $sort) {
-            // Ensure that key is present
-            if (!isset($sort['key'])) {
-                throw new UnexpectedValueException('Each sort order must at least specify a key.');
-            }
+            $this->validateSort($sort);
+        }
+    }
 
-            // Ensure that direction is valid
-            if (isset($sort['direction']) and !in_array(strtoupper($sort['direction']), ['ASC', 'DESC'])) {
-                throw new UnexpectedValueException('direction must be either "asc" or "desc" (or omitted)');
-            }
+    /**
+     * Validate a single sort rule.
+     *
+     * @param  array  $sort
+     * @return void
+     */
+    protected function validateSort(array $sort)
+    {
+        // Ensure that key is present
+        if (!isset($sort['key'])) {
+            throw new UnexpectedValueException('Each sort order must at least specify a key.');
+        }
+
+        // Ensure that direction is valid
+        if (isset($sort['direction']) and !in_array(strtoupper($sort['direction']), ['ASC', 'DESC'])) {
+            throw new UnexpectedValueException('direction must be either "asc" or "desc" (or omitted)');
         }
     }
 
