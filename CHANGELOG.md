@@ -1,5 +1,9 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.2.2
+- Add missing test for filtering on relationships
+- Fix a critical bug when filtering on relationships
+
 ### v0.2.1
 - `Eloqery->apply()` is now required to return an `OperationResult` by static return type hint
 

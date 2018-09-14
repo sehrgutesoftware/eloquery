@@ -40,7 +40,7 @@ class BooksController extends Controller
 ```
 
 ## API Documentation
-[https://sehrgutesoftware.github.io/eloquery/api/v0.2.1/](https://sehrgutesoftware.github.io/eloquery/api/v0.2.1/)
+[https://sehrgutesoftware.github.io/eloquery/api/v0.2.2/](https://sehrgutesoftware.github.io/eloquery/api/v0.2.2/)
 
 ## Changelog
 Please refer to [CHANGELOG.md](CHANGELOG.md).

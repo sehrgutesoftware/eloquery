@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>SehrGut\Eloquery\Constraints\BetweenConstraint | Eloquery API Documentation</title>
+    <title>SehrGut\Eloquery\Operations\Filter | Eloquery API Documentation</title>
 
             <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:SehrGut_Eloquery_Constraints_BetweenConstraint" data-root-path="../../../">
+    <body id="class" data-name="class:SehrGut_Eloquery_Operations_Filter" data-root-path="../../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -66,20 +66,21 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../../SehrGut.html">SehrGut</a></li><li class="backslash">\</li><li><a href="../../../SehrGut/Eloquery.html">Eloquery</a></li><li class="backslash">\</li><li><a href="../../../SehrGut/Eloquery/Constraints.html">Constraints</a></li><li class="backslash">\</li><li>BetweenConstraint</li>
+                        <li><a href="../../../SehrGut.html">SehrGut</a></li><li class="backslash">\</li><li><a href="../../../SehrGut/Eloquery.html">Eloquery</a></li><li class="backslash">\</li><li><a href="../../../SehrGut/Eloquery/Operations.html">Operations</a></li><li class="backslash">\</li><li>Filter</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            BetweenConstraint
+            Filter
                 
         </h1>
     </div>
 
     <p>    class
-    <strong>BetweenConstraint</strong>        extends <a href="../../../SehrGut/Eloquery/Constraints/AbstractConstraint.html"><abbr title="SehrGut\Eloquery\Constraints\AbstractConstraint">AbstractConstraint</abbr></a>
+    <strong>Filter</strong>        implements
+        <a href="../../../SehrGut/Eloquery/Contracts/Operation.html"><abbr title="SehrGut\Eloquery\Contracts\Operation">Operation</abbr></a>
 </p>
 
         
@@ -93,27 +94,43 @@
             <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_attribute">
-                                        protected                                        string
+                                                                                string
                 </td>
                 <td>$attribute</td>
-                <td class="last">The attribute that we're comparing.</td>
-                <td><small>from&nbsp;<a href="../../../SehrGut/Eloquery/Constraints/AbstractConstraint.html#property_attribute"><abbr title="SehrGut\Eloquery\Constraints\AbstractConstraint">AbstractConstraint</abbr></a></small></td>
+                <td class="last">The attribute name that this filter compares.</td>
+                <td></td>
             </tr>
                     <tr>
                 <td class="type" id="property_value">
-                                        protected                                        mixed
+                                                                                mixed
                 </td>
                 <td>$value</td>
-                <td class="last">The reference value against we're comparing the attribute.</td>
-                <td><small>from&nbsp;<a href="../../../SehrGut/Eloquery/Constraints/AbstractConstraint.html#property_value"><abbr title="SehrGut\Eloquery\Constraints\AbstractConstraint">AbstractConstraint</abbr></a></small></td>
+                <td class="last">The value against which this filter compares.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_operator">
+                                                                                bool
+                </td>
+                <td>$operator</td>
+                <td class="last">The filter operator.</td>
+                <td></td>
             </tr>
                     <tr>
                 <td class="type" id="property_negated">
-                                        protected                                        bool
+                                                                                bool
                 </td>
                 <td>$negated</td>
-                <td class="last">Whether the operation needs to be negated (logical not).</td>
-                <td><small>from&nbsp;<a href="../../../SehrGut/Eloquery/Constraints/AbstractConstraint.html#property_negated"><abbr title="SehrGut\Eloquery\Constraints\AbstractConstraint">AbstractConstraint</abbr></a></small></td>
+                <td class="last">Whether the filter is negated (logical not).</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_constraints">
+                    static                    protected                                        array
+                </td>
+                <td>$constraints</td>
+                <td class="last">Constraints by operator.</td>
+                <td></td>
             </tr>
             </table>
 
@@ -123,23 +140,13 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    string|null
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_getOperator">getOperator</a>()
-        
-                                            <p>Get the operator to feed into the builder method.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(string $attribute, mixed $value, bool $negated = false)
+                    <a href="#method___construct">__construct</a>(string $attribute, mixed $value, string $operator = &#039;EQUALS&#039;, bool $negated = false)
         
-                                            <p>Construct a Constraint instance.</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../../../SehrGut/Eloquery/Constraints/AbstractConstraint.html#method___construct"><abbr title="SehrGut\Eloquery\Constraints\AbstractConstraint">AbstractConstraint</abbr></a></small></div>
+                                            <p>Construct a Filter instance.</p>                </div>
+                <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
@@ -148,38 +155,58 @@
                 <div class="col-md-8 type">
                     <a href="#method_applyToBuilder">applyToBuilder</a>(<abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr> $builder)
         
-                                            <p>Apply the operation to the query builder.</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../../../SehrGut/Eloquery/Constraints/AbstractConstraint.html#method_applyToBuilder"><abbr title="SehrGut\Eloquery\Constraints\AbstractConstraint">AbstractConstraint</abbr></a></small></div>
+                                            <p>Apply the filter to a query builder.</p>                </div>
+                <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    array
+                    void
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getBuilderArguments">getBuilderArguments</a>()
+                    <a href="#method_apply">apply</a>(<abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr> $builder)
         
-                                            <p>Attributes to the builder method.</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../../../SehrGut/Eloquery/Constraints/AbstractConstraint.html#method_getBuilderArguments"><abbr title="SehrGut\Eloquery\Constraints\AbstractConstraint">AbstractConstraint</abbr></a></small></div>
+                                            <p>Apply the filter to a query builder (not checking for relationship).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    bool
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_actsOnRelation">actsOnRelation</a>()
+        
+                                            <p>Determine if the filter acts on a relation (as opposed to the model we're querying for).</p>                </div>
+                <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
                     string
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getBuilderMethod">getBuilderMethod</a>()
+                    <a href="#method_getRelation">getRelation</a>()
         
-                                            <p>The method to call on the builder.</p>                </div>
+                                            <p>Get the relation on which to apply this filter.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    mixed
+                    string
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_getPreparedValue">getPreparedValue</a>()
+                    <a href="#method_getBareAttribute">getBareAttribute</a>()
         
-                                            <p>The value transformed to match the operation.</p>                </div>
-                <div class="col-md-2"><small>from&nbsp;<a href="../../../SehrGut/Eloquery/Constraints/AbstractConstraint.html#method_getPreparedValue"><abbr title="SehrGut\Eloquery\Constraints\AbstractConstraint">AbstractConstraint</abbr></a></small></div>
+                                            <p>Get the attribute that this filter compares without relationship prefix.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../SehrGut/Eloquery/Contracts/Operation.html"><abbr title="SehrGut\Eloquery\Contracts\Operation">Operation</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getOperation">getOperation</a>()
+        
+                                            <p>Get an Operation instance for the current filter.</p>                </div>
+                <div class="col-md-2"></div>
             </div>
             </div>
 
@@ -188,40 +215,10 @@
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method_getOperator">
-        <div class="location">at         line 8</div>
-        <code>            protected        string|null
-    <strong>getOperator</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Get the operator to feed into the builder method.</p>                                                </div>
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>string|null</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">in <a href="../../../SehrGut/Eloquery/Constraints/AbstractConstraint.html#method___construct"><abbr title="SehrGut\Eloquery\Constraints\AbstractConstraint">AbstractConstraint</abbr></a> at         line 46</div>
+        <div class="location">at         line 66</div>
         <code>                    
-    <strong>__construct</strong>(string $attribute, mixed $value, bool $negated = false)
+    <strong>__construct</strong>(string $attribute, mixed $value, string $operator = &#039;EQUALS&#039;, bool $negated = false)
         </code>
     </h3>
     <div class="details">
@@ -229,7 +226,7 @@
     
 
                     <div class="method-description">
-                                    <p>Construct a Constraint instance.</p>                                                </div>
+                                    <p>Construct a Filter instance.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -242,6 +239,11 @@
                     <tr>
                 <td>mixed</td>
                 <td>$value</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$operator</td>
                 <td></td>
             </tr>
                     <tr>
@@ -260,7 +262,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_applyToBuilder">
-        <div class="location">in <a href="../../../SehrGut/Eloquery/Constraints/AbstractConstraint.html#method_applyToBuilder"><abbr title="SehrGut\Eloquery\Constraints\AbstractConstraint">AbstractConstraint</abbr></a> at         line 59</div>
+        <div class="location">at         line 88</div>
         <code>                    <abbr title="SehrGut\Eloquery\Contracts\SehrGut\Eloquery\OperationResult">OperationResult</abbr>|null
     <strong>applyToBuilder</strong>(<abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr> $builder)
         </code>
@@ -270,7 +272,7 @@
     
 
                     <div class="method-description">
-                                    <p>Apply the operation to the query builder.</p>                                                </div>
+                                    <p>Apply the filter to a query builder.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -299,10 +301,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_getBuilderArguments">
-        <div class="location">in <a href="../../../SehrGut/Eloquery/Constraints/AbstractConstraint.html#method_getBuilderArguments"><abbr title="SehrGut\Eloquery\Constraints\AbstractConstraint">AbstractConstraint</abbr></a> at         line 71</div>
-        <code>            protected        array
-    <strong>getBuilderArguments</strong>()
+                    <h3 id="method_apply">
+        <div class="location">at         line 107</div>
+        <code>            protected        void
+    <strong>apply</strong>(<abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr> $builder)
         </code>
     </h3>
     <div class="details">
@@ -310,14 +312,24 @@
     
 
                     <div class="method-description">
-                                    <p>Attributes to the builder method.</p>                                                </div>
+                                    <p>Apply the filter to a query builder (not checking for relationship).</p>                                                </div>
                 <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr></td>
+                <td>$builder</td>
+                <td></td>
+            </tr>
+            </table>
+
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>array</td>
+            <td>void</td>
             <td></td>
         </tr>
     </table>
@@ -329,10 +341,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_getBuilderMethod">
-        <div class="location">at         line 14</div>
-        <code>            protected        string
-    <strong>getBuilderMethod</strong>()
+                    <h3 id="method_actsOnRelation">
+        <div class="location">at         line 117</div>
+        <code>            protected        bool
+    <strong>actsOnRelation</strong>()
         </code>
     </h3>
     <div class="details">
@@ -340,7 +352,37 @@
     
 
                     <div class="method-description">
-                                    <p>The method to call on the builder.</p>                                                </div>
+                                    <p>Determine if the filter acts on a relation (as opposed to the model we're querying for).</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>bool</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getRelation">
+        <div class="location">at         line 127</div>
+        <code>            protected        string
+    <strong>getRelation</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get the relation on which to apply this filter.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
@@ -359,10 +401,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_getPreparedValue">
-        <div class="location">in <a href="../../../SehrGut/Eloquery/Constraints/AbstractConstraint.html#method_getPreparedValue"><abbr title="SehrGut\Eloquery\Constraints\AbstractConstraint">AbstractConstraint</abbr></a> at         line 99</div>
-        <code>            protected        mixed
-    <strong>getPreparedValue</strong>()
+                    <h3 id="method_getBareAttribute">
+        <div class="location">at         line 141</div>
+        <code>            protected        string
+    <strong>getBareAttribute</strong>()
         </code>
     </h3>
     <div class="details">
@@ -370,14 +412,44 @@
     
 
                     <div class="method-description">
-                                    <p>The value transformed to match the operation.</p>                                                </div>
+                                    <p>Get the attribute that this filter compares without relationship prefix.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>mixed</td>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getOperation">
+        <div class="location">at         line 157</div>
+        <code>            protected        <a href="../../../SehrGut/Eloquery/Contracts/Operation.html"><abbr title="SehrGut\Eloquery\Contracts\Operation">Operation</abbr></a>
+    <strong>getOperation</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get an Operation instance for the current filter.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../SehrGut/Eloquery/Contracts/Operation.html"><abbr title="SehrGut\Eloquery\Contracts\Operation">Operation</abbr></a></td>
             <td></td>
         </tr>
     </table>
