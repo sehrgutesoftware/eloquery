@@ -19,7 +19,7 @@ class EloqueryTest extends TestCase
             ->with('attr_name', 'DESC');
 
         $parser = Mockery::mock(RequestParser::class);
-        $parser->shouldReceive('extractOperations')
+        $parser->shouldReceive('extract')
             ->once()
             ->andReturn(new OperationCollection([new Sort('attr_name', false)]));
 

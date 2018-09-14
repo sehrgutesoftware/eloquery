@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use SehrGut\Eloquery\OperationResult;
 
 /**
- * Describes an operation on a Query Builder, like eg. a filter constraint or sort order.
+ * Describes an operation on a Query Builder, eg. a filter constraint or sort order.
  */
 interface Operation
 {

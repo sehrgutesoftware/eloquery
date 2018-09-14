@@ -12,12 +12,22 @@ use SehrGut\Eloquery\RequestParser;
 
 class RequestParserTest extends TestCase
 {
+    /**
+     * Get default configuration options.
+     *
+     * @return array
+     */
+    protected function getDefaultConfig(): array
+    {
+        return require(__DIR__ . '/../config/eloquery.php');
+    }
+
     public function test_it_extracts_paginate_operations()
     {
         $request = new Request(['page' => 3, 'limit' => 13]);
-        $parser = new RequestParser($request);
+        $parser = new RequestParser($request, $this->getDefaultConfig());
 
-        $operations = $parser->extractOperations();
+        $operations = $parser->extract();
         $this->assertInstanceOf(OperationCollection::class, $operations);
 
         $operation = $operations->dump()[0];
@@ -40,9 +50,9 @@ class RequestParserTest extends TestCase
                 ],
             ]
         ]);
-        $parser = new RequestParser($request);
+        $parser = new RequestParser($request, $this->getDefaultConfig());
 
-        $operations = $parser->extractOperations();
+        $operations = $parser->extract();
         $this->assertInstanceOf(OperationCollection::class, $operations);
 
         $operationOne = $operations->dump()[0];
@@ -73,9 +83,9 @@ class RequestParserTest extends TestCase
                 ],
             ]
         ]);
-        $parser = new RequestParser($request);
+        $parser = new RequestParser($request, $this->getDefaultConfig());
 
-        $operations = $parser->extractOperations();
+        $operations = $parser->extract();
         $this->assertInstanceOf(OperationCollection::class, $operations);
 
         $operationOne = $operations->dump()[0];

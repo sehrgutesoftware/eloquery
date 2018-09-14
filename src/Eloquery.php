@@ -4,22 +4,23 @@ namespace SehrGut\Eloquery;
 
 use Illuminate\Database\Eloquent\Builder;
 use SehrGut\Eloquery\Contracts\Operation;
+use SehrGut\Eloquery\Contracts\Parser;
 
 class Eloquery
 {
     /**
-     * A RequestParser instance.
+     * A Parser instance.
      *
-     * @var RequestParser
+     * @var \SehrGut\Eloquery\Contracts\Parser
      */
     protected $requestParser;
 
     /**
      * Construct a new instance.
      *
-     * @param RequestParser $requestParser
+     * @param \SehrGut\Eloquery\Contracts\Parser $requestParser
      */
-    public function __construct(RequestParser $requestParser)
+    public function __construct(Parser $requestParser)
     {
         $this->requestParser = $requestParser;
     }
@@ -32,7 +33,7 @@ class Eloquery
      */
     public function apply(Builder $builder, ?array $components = null): OperationResult
     {
-        $operations = $this->requestParser->extractOperations($components);
+        $operations = $this->requestParser->extract($components);
 
         return $operations->applyToBuilder($builder);
     }
