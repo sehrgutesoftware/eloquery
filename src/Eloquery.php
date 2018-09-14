@@ -3,6 +3,7 @@
 namespace SehrGut\Eloquery;
 
 use Illuminate\Database\Eloquent\Builder;
+use SehrGut\Eloquery\Contracts\Operation;
 
 class Eloquery
 {
@@ -27,9 +28,9 @@ class Eloquery
      * Apply query params from the request to given query builder.
      *
      * @param  Builder $builder
-     * @return OperationResult|null
+     * @return OperationResult
      */
-    public function apply(Builder $builder, ?array $components = null): ?OperationResult
+    public function apply(Builder $builder, ?array $components = null): OperationResult
     {
         $operations = $this->requestParser->extractOperations($components);
 
