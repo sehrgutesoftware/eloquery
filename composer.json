@@ -38,5 +38,12 @@
         "docs": [
             "./bin/sami update docs/sami.php"
         ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SehrGut\\Eloquery\\Providers\\EloqueryServiceProvider"
+            ]
+        }
     }
 }
