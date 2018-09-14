@@ -2,6 +2,9 @@
 
 namespace SehrGut\Eloquery\Tests\Operations;
 
+use Closure;
+use Illuminate\Database\Eloquent\Builder;
+use Mockery;
 use SehrGut\Eloquery\Operations\Filter;
 use SehrGut\Eloquery\Operators;
 
@@ -202,6 +205,26 @@ class FilterTest extends OperationTestCase
             ->with('field', ['value1', 'value2']);
 
         $filter = new Filter('field', ['value1', 'value2'], Operators::BETWEEN, true);
+        $filter->applyToBuilder($this->builder);
+    }
+
+    public function test_it_applies_a_constraint_on_a_relationship()
+    {
+        $nestedBuilder = Mockery::mock(Builder::class);
+        $nestedBuilder->shouldReceive('where')
+            ->once()
+            ->with('field', '=', 'value');
+
+        $this->builder->shouldReceive('whereHas')
+            ->once()
+            ->withArgs(function ($relation, $closure) use ($nestedBuilder) {
+                $closure($nestedBuilder);
+
+                return $relation === 'relation'
+                    and $closure instanceof Closure;
+            });
+
+        $filter = new Filter('relation.field', 'value', Operators::EQUALS, false);
         $filter->applyToBuilder($this->builder);
     }
 }

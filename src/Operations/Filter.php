@@ -114,7 +114,7 @@ class Filter implements Operation
      *
      * @return bool
      */
-    protected function actsOnRelation() : bool
+    protected function actsOnRelation(): bool
     {
         return (strpos($this->attribute, '.') > -1);
     }
@@ -124,7 +124,7 @@ class Filter implements Operation
      *
      * @return string
      */
-    protected function getRelation() : string
+    protected function getRelation(): string
     {
         if (!$this->actsOnRelation()) {
             return '';
@@ -138,13 +138,15 @@ class Filter implements Operation
      *
      * @return string
      */
-    protected function getBareAttribute() : string
+    protected function getBareAttribute(): string
     {
         if (!$this->actsOnRelation()) {
             return $this->attribute;
         }
 
-        return end($this->getAttributeFragments());
+        $fragments = $this->getAttributeFragments();
+
+        return end($fragments);
     }
 
     /**
@@ -152,7 +154,7 @@ class Filter implements Operation
      *
      * @return Operation
      */
-    protected function getOperation() : Operation
+    protected function getOperation(): Operation
     {
         $class = static::$constraints[$this->operator];
 
@@ -164,7 +166,7 @@ class Filter implements Operation
      *
      * @return array
      */
-    private function getAttributeFragments() : array
+    private function getAttributeFragments(): array
     {
         return explode('.', $this->attribute);
     }
