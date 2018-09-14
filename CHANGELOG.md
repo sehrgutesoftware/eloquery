@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.2.1
+- `Eloqery->apply()` is now required to return an `OperationResult` by static return type hint
+
 ### v0.2.0
 - Change namespace from `SehrGut\EloQuery` to `SehrGut\Eloquery`
 - Add Facade and Service Provider

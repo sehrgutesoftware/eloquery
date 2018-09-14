@@ -22,7 +22,7 @@
 ```php
 use App\Models\Book;
 use Illuminate\Routing\Controller;
-use SehrGut\Eloquery\RequestParser;
+use SehrGut\Eloquery\Facades\Eloquery;
 
 class BooksController extends Controller
 {
@@ -32,9 +32,7 @@ class BooksController extends Controller
     public function index(RequestParser $parser)
     {
         $builder = Book::query();
-
-        $operations = $parser->extractOperations();
-        $operations->applyToBuilder($builder);
+        Eloquery::apply($builder);
 
         return $builder->get();
     }
@@ -42,7 +40,7 @@ class BooksController extends Controller
 ```
 
 ## API Documentation
-[https://sehrgutesoftware.github.io/eloquery/api/v0.2.0/](https://sehrgutesoftware.github.io/eloquery/api/v0.2.0/)
+[https://sehrgutesoftware.github.io/eloquery/api/v0.2.1/](https://sehrgutesoftware.github.io/eloquery/api/v0.2.1/)
 
 ## Changelog
 Please refer to [CHANGELOG.md](CHANGELOG.md).
