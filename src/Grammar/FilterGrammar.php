@@ -43,7 +43,10 @@ class FilterGrammar implements Grammar
     protected function validate($filters)
     {
         if (!is_array($filters)) {
-            throw new UnexpectedValueException('filter must be an array, eg. [["key" => "someField", "value" => "desiredValue", "operator" => "equals"], […], …');
+            throw new UnexpectedValueException(
+                'filter must be an array, eg. [["key" => "someField", "value" => "desiredValue",'.
+                ' "operator" => "equals"], […], …'
+            );
         }
 
         foreach ($filters as $filter) {

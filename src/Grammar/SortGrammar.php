@@ -41,7 +41,9 @@ class SortGrammar implements Grammar
     protected function validate($sorts)
     {
         if (!is_array($sorts)) {
-            throw new UnexpectedValueException('sort must be an array, eg. [["key" => "someField", "direction" => "desc"], […], …');
+            throw new UnexpectedValueException(
+                'sort must be an array, eg. [["key" => "someField", "direction" => "desc"], […], …'
+            );
         }
 
         foreach ($sorts as $sort) {
