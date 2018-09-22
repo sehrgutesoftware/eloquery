@@ -85,6 +85,19 @@ class RequestParser implements Parser
     }
 
     /**
+     * Override the request.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return $this
+     */
+    public function setRequest(Request $request): Parser
+    {
+        $this->request = $request;
+
+        return $this;
+    }
+
+    /**
      * Instantiate the extractors.
      *
      * @return array

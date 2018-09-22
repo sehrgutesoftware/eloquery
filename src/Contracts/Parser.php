@@ -29,4 +29,12 @@ interface Parser
      * @return $this
      */
     public function setConfig(string $key, $value): Parser;
+
+    /**
+     * Override the request.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return $this
+     */
+    public function setRequest(Request $request): Parser;
 }

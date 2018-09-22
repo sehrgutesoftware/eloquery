@@ -3,6 +3,7 @@
 namespace SehrGut\Eloquery\Tests;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 use Mockery;
 use SehrGut\Eloquery\Eloquery;
 use SehrGut\Eloquery\OperationCollection;
@@ -37,6 +38,32 @@ class EloqueryTest extends TestCase
         $eloquery = new Eloquery($parser);
 
         $retval = $eloquery->allowFilterKeys(['item1', 'item2']);
+        $this->assertEquals($eloquery, $retval);
+    }
+
+    public function test_it_extracts_an_operation_collection()
+    {
+        $collection = new OperationCollection();
+        $parser = Mockery::mock(RequestParser::class);
+        $parser->shouldReceive('extract')
+            ->once()
+            ->andReturn($collection);
+
+        $eloquery = new Eloquery($parser);
+        $this->assertEquals($collection, $eloquery->extract());
+    }
+
+    public function test_it_sets_the_request_instance()
+    {
+        $request = new Request();
+
+        $parser = Mockery::mock(RequestParser::class);
+        $parser->shouldReceive('setRequest')
+            ->once()
+            ->with($request);
+
+        $eloquery = new Eloquery($parser);
+        $retval = $eloquery->withRequest($request);
         $this->assertEquals($eloquery, $retval);
     }
 }

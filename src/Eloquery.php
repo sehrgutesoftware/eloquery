@@ -3,8 +3,10 @@
 namespace SehrGut\Eloquery;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\Request;
 use SehrGut\Eloquery\Contracts\Operation;
 use SehrGut\Eloquery\Contracts\Parser;
+use SehrGut\Eloquery\OperationCollection;
 
 class Eloquery
 {
@@ -26,6 +28,16 @@ class Eloquery
     }
 
     /**
+     * Extract operations from the request.
+     *
+     * @return OperationColection
+     */
+    public function extract(): OperationCollection
+    {
+        return $this->requestParser->extract();
+    }
+
+    /**
      * Apply query params from the request to given query builder.
      *
      * @param  Builder $builder
@@ -36,6 +48,19 @@ class Eloquery
         $operations = $this->requestParser->extract($components);
 
         return $operations->applyToBuilder($builder);
+    }
+
+    /**
+     * Override the request from which to extract.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return $this
+     */
+    public function withRequest(Request $request): Eloquery
+    {
+        $this->requestParser->setRequest($request);
+
+        return $this;
     }
 
     /**
