@@ -1,5 +1,5 @@
 
-window.projectVersion = 'v0.3.3';
+window.projectVersion = 'v0.3.4';
 
 (function(root) {
 
@@ -101,7 +101,7 @@ window.projectVersion = 'v0.3.3';
                                                         {"type": "Method", "fromName": "SehrGut\\Eloquery\\Eloquery", "fromLink": "SehrGut/Eloquery/Eloquery.html", "link": "SehrGut/Eloquery/Eloquery.html#method___construct", "name": "SehrGut\\Eloquery\\Eloquery::__construct", "doc": "&quot;Construct a new instance.&quot;"},
                     {"type": "Method", "fromName": "SehrGut\\Eloquery\\Eloquery", "fromLink": "SehrGut/Eloquery/Eloquery.html", "link": "SehrGut/Eloquery/Eloquery.html#method_extract", "name": "SehrGut\\Eloquery\\Eloquery::extract", "doc": "&quot;Extract operations from the request.&quot;"},
                     {"type": "Method", "fromName": "SehrGut\\Eloquery\\Eloquery", "fromLink": "SehrGut/Eloquery/Eloquery.html", "link": "SehrGut/Eloquery/Eloquery.html#method_apply", "name": "SehrGut\\Eloquery\\Eloquery::apply", "doc": "&quot;Apply query params from the request to given query builder.&quot;"},
-                    {"type": "Method", "fromName": "SehrGut\\Eloquery\\Eloquery", "fromLink": "SehrGut/Eloquery/Eloquery.html", "link": "SehrGut/Eloquery/Eloquery.html#method_withRequest", "name": "SehrGut\\Eloquery\\Eloquery::withRequest", "doc": "&quot;Override the request from which to extract.&quot;"},
+                    {"type": "Method", "fromName": "SehrGut\\Eloquery\\Eloquery", "fromLink": "SehrGut/Eloquery/Eloquery.html", "link": "SehrGut/Eloquery/Eloquery.html#method_from", "name": "SehrGut\\Eloquery\\Eloquery::from", "doc": "&quot;Override the request from which to extract.&quot;"},
                     {"type": "Method", "fromName": "SehrGut\\Eloquery\\Eloquery", "fromLink": "SehrGut/Eloquery/Eloquery.html", "link": "SehrGut/Eloquery/Eloquery.html#method_allowFilterKeys", "name": "SehrGut\\Eloquery\\Eloquery::allowFilterKeys", "doc": "&quot;Set the filter whitelist.&quot;"},
             
             {"type": "Class", "fromName": "SehrGut\\Eloquery\\Extractors", "fromLink": "SehrGut/Eloquery/Extractors.html", "link": "SehrGut/Eloquery/Extractors/AbstractExtractor.html", "name": "SehrGut\\Eloquery\\Extractors\\AbstractExtractor", "doc": "&quot;&quot;"},

@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.3.4
+- Rename `Eloquery::withRequest(Request)` to `Eloquery::from(Request)`
+
 ### v0.3.3
 - Allow manually setting the request
 - Add `extract()` proxy method to Eloquery class

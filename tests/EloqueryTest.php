@@ -63,7 +63,7 @@ class EloqueryTest extends TestCase
             ->with($request);
 
         $eloquery = new Eloquery($parser);
-        $retval = $eloquery->withRequest($request);
+        $retval = $eloquery->from($request);
         $this->assertEquals($eloquery, $retval);
     }
 }

@@ -56,7 +56,7 @@ class Eloquery
      * @param  \Illuminate\Http\Request  $request
      * @return $this
      */
-    public function withRequest(Request $request): Eloquery
+    public function from(Request $request): Eloquery
     {
         $this->requestParser->setRequest($request);
 
