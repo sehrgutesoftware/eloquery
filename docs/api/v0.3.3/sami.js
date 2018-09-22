@@ -1,5 +1,5 @@
 
-window.projectVersion = 'v0.3.2';
+window.projectVersion = 'v0.3.3';
 
 (function(root) {
 
@@ -34,6 +34,7 @@ window.projectVersion = 'v0.3.2';
                                                         {"type": "Method", "fromName": "SehrGut\\Eloquery\\Contracts\\Parser", "fromLink": "SehrGut/Eloquery/Contracts/Parser.html", "link": "SehrGut/Eloquery/Contracts/Parser.html#method___construct", "name": "SehrGut\\Eloquery\\Contracts\\Parser::__construct", "doc": "&quot;Construct a Parser instance.&quot;"},
                     {"type": "Method", "fromName": "SehrGut\\Eloquery\\Contracts\\Parser", "fromLink": "SehrGut/Eloquery/Contracts/Parser.html", "link": "SehrGut/Eloquery/Contracts/Parser.html#method_getConfig", "name": "SehrGut\\Eloquery\\Contracts\\Parser::getConfig", "doc": "&quot;Retrieve the configuration variables of the parser.&quot;"},
                     {"type": "Method", "fromName": "SehrGut\\Eloquery\\Contracts\\Parser", "fromLink": "SehrGut/Eloquery/Contracts/Parser.html", "link": "SehrGut/Eloquery/Contracts/Parser.html#method_setConfig", "name": "SehrGut\\Eloquery\\Contracts\\Parser::setConfig", "doc": "&quot;Set config value on the parser.&quot;"},
+                    {"type": "Method", "fromName": "SehrGut\\Eloquery\\Contracts\\Parser", "fromLink": "SehrGut/Eloquery/Contracts/Parser.html", "link": "SehrGut/Eloquery/Contracts/Parser.html#method_setRequest", "name": "SehrGut\\Eloquery\\Contracts\\Parser::setRequest", "doc": "&quot;Override the request.&quot;"},
             
             
             {"type": "Class", "fromName": "SehrGut\\Eloquery\\Constraints", "fromLink": "SehrGut/Eloquery/Constraints.html", "link": "SehrGut/Eloquery/Constraints/AbstractConstraint.html", "name": "SehrGut\\Eloquery\\Constraints\\AbstractConstraint", "doc": "&quot;&quot;"},
@@ -94,10 +95,13 @@ window.projectVersion = 'v0.3.2';
                                                         {"type": "Method", "fromName": "SehrGut\\Eloquery\\Contracts\\Parser", "fromLink": "SehrGut/Eloquery/Contracts/Parser.html", "link": "SehrGut/Eloquery/Contracts/Parser.html#method___construct", "name": "SehrGut\\Eloquery\\Contracts\\Parser::__construct", "doc": "&quot;Construct a Parser instance.&quot;"},
                     {"type": "Method", "fromName": "SehrGut\\Eloquery\\Contracts\\Parser", "fromLink": "SehrGut/Eloquery/Contracts/Parser.html", "link": "SehrGut/Eloquery/Contracts/Parser.html#method_getConfig", "name": "SehrGut\\Eloquery\\Contracts\\Parser::getConfig", "doc": "&quot;Retrieve the configuration variables of the parser.&quot;"},
                     {"type": "Method", "fromName": "SehrGut\\Eloquery\\Contracts\\Parser", "fromLink": "SehrGut/Eloquery/Contracts/Parser.html", "link": "SehrGut/Eloquery/Contracts/Parser.html#method_setConfig", "name": "SehrGut\\Eloquery\\Contracts\\Parser::setConfig", "doc": "&quot;Set config value on the parser.&quot;"},
+                    {"type": "Method", "fromName": "SehrGut\\Eloquery\\Contracts\\Parser", "fromLink": "SehrGut/Eloquery/Contracts/Parser.html", "link": "SehrGut/Eloquery/Contracts/Parser.html#method_setRequest", "name": "SehrGut\\Eloquery\\Contracts\\Parser::setRequest", "doc": "&quot;Override the request.&quot;"},
             
             {"type": "Class", "fromName": "SehrGut\\Eloquery", "fromLink": "SehrGut/Eloquery.html", "link": "SehrGut/Eloquery/Eloquery.html", "name": "SehrGut\\Eloquery\\Eloquery", "doc": "&quot;&quot;"},
                                                         {"type": "Method", "fromName": "SehrGut\\Eloquery\\Eloquery", "fromLink": "SehrGut/Eloquery/Eloquery.html", "link": "SehrGut/Eloquery/Eloquery.html#method___construct", "name": "SehrGut\\Eloquery\\Eloquery::__construct", "doc": "&quot;Construct a new instance.&quot;"},
+                    {"type": "Method", "fromName": "SehrGut\\Eloquery\\Eloquery", "fromLink": "SehrGut/Eloquery/Eloquery.html", "link": "SehrGut/Eloquery/Eloquery.html#method_extract", "name": "SehrGut\\Eloquery\\Eloquery::extract", "doc": "&quot;Extract operations from the request.&quot;"},
                     {"type": "Method", "fromName": "SehrGut\\Eloquery\\Eloquery", "fromLink": "SehrGut/Eloquery/Eloquery.html", "link": "SehrGut/Eloquery/Eloquery.html#method_apply", "name": "SehrGut\\Eloquery\\Eloquery::apply", "doc": "&quot;Apply query params from the request to given query builder.&quot;"},
+                    {"type": "Method", "fromName": "SehrGut\\Eloquery\\Eloquery", "fromLink": "SehrGut/Eloquery/Eloquery.html", "link": "SehrGut/Eloquery/Eloquery.html#method_withRequest", "name": "SehrGut\\Eloquery\\Eloquery::withRequest", "doc": "&quot;Override the request from which to extract.&quot;"},
                     {"type": "Method", "fromName": "SehrGut\\Eloquery\\Eloquery", "fromLink": "SehrGut/Eloquery/Eloquery.html", "link": "SehrGut/Eloquery/Eloquery.html#method_allowFilterKeys", "name": "SehrGut\\Eloquery\\Eloquery::allowFilterKeys", "doc": "&quot;Set the filter whitelist.&quot;"},
             
             {"type": "Class", "fromName": "SehrGut\\Eloquery\\Extractors", "fromLink": "SehrGut/Eloquery/Extractors.html", "link": "SehrGut/Eloquery/Extractors/AbstractExtractor.html", "name": "SehrGut\\Eloquery\\Extractors\\AbstractExtractor", "doc": "&quot;&quot;"},
@@ -183,6 +187,7 @@ window.projectVersion = 'v0.3.2';
                     {"type": "Method", "fromName": "SehrGut\\Eloquery\\RequestParser", "fromLink": "SehrGut/Eloquery/RequestParser.html", "link": "SehrGut/Eloquery/RequestParser.html#method_extract", "name": "SehrGut\\Eloquery\\RequestParser::extract", "doc": "&quot;Extract all query Operations from the request.&quot;"},
                     {"type": "Method", "fromName": "SehrGut\\Eloquery\\RequestParser", "fromLink": "SehrGut/Eloquery/RequestParser.html", "link": "SehrGut/Eloquery/RequestParser.html#method_getConfig", "name": "SehrGut\\Eloquery\\RequestParser::getConfig", "doc": "&quot;Retrieve the configuration variables of the parser.&quot;"},
                     {"type": "Method", "fromName": "SehrGut\\Eloquery\\RequestParser", "fromLink": "SehrGut/Eloquery/RequestParser.html", "link": "SehrGut/Eloquery/RequestParser.html#method_setConfig", "name": "SehrGut\\Eloquery\\RequestParser::setConfig", "doc": "&quot;Set config value on the parser.&quot;"},
+                    {"type": "Method", "fromName": "SehrGut\\Eloquery\\RequestParser", "fromLink": "SehrGut/Eloquery/RequestParser.html", "link": "SehrGut/Eloquery/RequestParser.html#method_setRequest", "name": "SehrGut\\Eloquery\\RequestParser::setRequest", "doc": "&quot;Override the request.&quot;"},
                     {"type": "Method", "fromName": "SehrGut\\Eloquery\\RequestParser", "fromLink": "SehrGut/Eloquery/RequestParser.html", "link": "SehrGut/Eloquery/RequestParser.html#method_makeExtractors", "name": "SehrGut\\Eloquery\\RequestParser::makeExtractors", "doc": "&quot;Instantiate the extractors.&quot;"},
             
             

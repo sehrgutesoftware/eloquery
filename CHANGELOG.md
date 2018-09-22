@@ -1,5 +1,9 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.3.3
+- Allow manually setting the request
+- Add `extract()` proxy method to Eloquery class
+
 ### v0.3.2
 - Fix passing of filter config down to the grammar instance
 

@@ -117,12 +117,32 @@
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
+                    <a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_extract">extract</a>()
+        
+                                            <p>Extract operations from the request.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     <a href="../../SehrGut/Eloquery/OperationResult.html"><abbr title="SehrGut\Eloquery\OperationResult">OperationResult</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_apply">apply</a>(<abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr> $builder, array|null $components = null)
         
                                             <p>Apply query params from the request to given query builder.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../SehrGut/Eloquery/Eloquery.html"><abbr title="SehrGut\Eloquery\Eloquery">Eloquery</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_withRequest">withRequest</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
+        
+                                            <p>Override the request from which to extract.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
@@ -143,7 +163,7 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 23</div>
+        <div class="location">at         line 25</div>
         <code>                    
     <strong>__construct</strong>(<a href="../../SehrGut/Eloquery/Contracts/Parser.html"><abbr title="SehrGut\Eloquery\Contracts\Parser">Parser</abbr></a> $requestParser)
         </code>
@@ -173,8 +193,38 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_extract">
+        <div class="location">at         line 35</div>
+        <code>                    <a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
+    <strong>extract</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Extract operations from the request.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_apply">
-        <div class="location">at         line 34</div>
+        <div class="location">at         line 46</div>
         <code>                    <a href="../../SehrGut/Eloquery/OperationResult.html"><abbr title="SehrGut\Eloquery\OperationResult">OperationResult</abbr></a>
     <strong>apply</strong>(<abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr> $builder, array|null $components = null)
         </code>
@@ -218,8 +268,48 @@
 
             </div>
                     <div class="method-item">
+                    <h3 id="method_withRequest">
+        <div class="location">at         line 59</div>
+        <code>                    <a href="../../SehrGut/Eloquery/Eloquery.html"><abbr title="SehrGut\Eloquery\Eloquery">Eloquery</abbr></a>
+    <strong>withRequest</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Override the request from which to extract.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../SehrGut/Eloquery/Eloquery.html"><abbr title="SehrGut\Eloquery\Eloquery">Eloquery</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
                     <h3 id="method_allowFilterKeys">
-        <div class="location">at         line 47</div>
+        <div class="location">at         line 72</div>
         <code>                    <a href="../../SehrGut/Eloquery/Eloquery.html"><abbr title="SehrGut\Eloquery\Eloquery">Eloquery</abbr></a>
     <strong>allowFilterKeys</strong>(array $keys)
         </code>
