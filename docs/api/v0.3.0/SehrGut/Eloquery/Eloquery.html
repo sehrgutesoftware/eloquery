@@ -93,10 +93,10 @@
             <table class="table table-condensed">
                     <tr>
                 <td class="type" id="property_requestParser">
-                                        protected                                        <a href="../../SehrGut/Eloquery/RequestParser.html"><abbr title="SehrGut\Eloquery\RequestParser">RequestParser</abbr></a>
+                                        protected                                        <a href="../../SehrGut/Eloquery/Contracts/Parser.html"><abbr title="SehrGut\Eloquery\Contracts\Parser">Parser</abbr></a>
                 </td>
                 <td>$requestParser</td>
-                <td class="last">A RequestParser instance.</td>
+                <td class="last">A Parser instance.</td>
                 <td></td>
             </tr>
             </table>
@@ -110,7 +110,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(<a href="../../SehrGut/Eloquery/RequestParser.html"><abbr title="SehrGut\Eloquery\RequestParser">RequestParser</abbr></a> $requestParser)
+                    <a href="#method___construct">__construct</a>(<a href="../../SehrGut/Eloquery/Contracts/Parser.html"><abbr title="SehrGut\Eloquery\Contracts\Parser">Parser</abbr></a> $requestParser)
         
                                             <p>Construct a new instance.</p>                </div>
                 <div class="col-md-2"></div>
@@ -125,6 +125,16 @@
                                             <p>Apply query params from the request to given query builder.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../SehrGut/Eloquery/Eloquery.html"><abbr title="SehrGut\Eloquery\Eloquery">Eloquery</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_allowFilterKeys">allowFilterKeys</a>(array $keys)
+        
+                                            <p>Set the filter whitelist.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
             </div>
 
 
@@ -133,9 +143,9 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 22</div>
+        <div class="location">at         line 23</div>
         <code>                    
-    <strong>__construct</strong>(<a href="../../SehrGut/Eloquery/RequestParser.html"><abbr title="SehrGut\Eloquery\RequestParser">RequestParser</abbr></a> $requestParser)
+    <strong>__construct</strong>(<a href="../../SehrGut/Eloquery/Contracts/Parser.html"><abbr title="SehrGut\Eloquery\Contracts\Parser">Parser</abbr></a> $requestParser)
         </code>
     </h3>
     <div class="details">
@@ -149,7 +159,7 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td><a href="../../SehrGut/Eloquery/RequestParser.html"><abbr title="SehrGut\Eloquery\RequestParser">RequestParser</abbr></a></td>
+                <td><a href="../../SehrGut/Eloquery/Contracts/Parser.html"><abbr title="SehrGut\Eloquery\Contracts\Parser">Parser</abbr></a></td>
                 <td>$requestParser</td>
                 <td></td>
             </tr>
@@ -164,7 +174,7 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_apply">
-        <div class="location">at         line 33</div>
+        <div class="location">at         line 34</div>
         <code>                    <a href="../../SehrGut/Eloquery/OperationResult.html"><abbr title="SehrGut\Eloquery\OperationResult">OperationResult</abbr></a>
     <strong>apply</strong>(<abbr title="Illuminate\Database\Eloquent\Builder">Builder</abbr> $builder, array|null $components = null)
         </code>
@@ -197,6 +207,46 @@
                     <table class="table table-condensed">
         <tr>
             <td><a href="../../SehrGut/Eloquery/OperationResult.html"><abbr title="SehrGut\Eloquery\OperationResult">OperationResult</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_allowFilterKeys">
+        <div class="location">at         line 47</div>
+        <code>                    <a href="../../SehrGut/Eloquery/Eloquery.html"><abbr title="SehrGut\Eloquery\Eloquery">Eloquery</abbr></a>
+    <strong>allowFilterKeys</strong>(array $keys)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Set the filter whitelist.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$keys</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../SehrGut/Eloquery/Eloquery.html"><abbr title="SehrGut\Eloquery\Eloquery">Eloquery</abbr></a></td>
             <td></td>
         </tr>
     </table>

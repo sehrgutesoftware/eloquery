@@ -79,7 +79,8 @@
     </div>
 
     <p>    class
-    <strong>RequestParser</strong>
+    <strong>RequestParser</strong>        implements
+        <a href="../../SehrGut/Eloquery/Contracts/Parser.html"><abbr title="SehrGut\Eloquery\Contracts\Parser">Parser</abbr></a>
 </p>
 
         
@@ -87,18 +88,6 @@
 
     
     
-            <h2>Constants</h2>
-
-            <table class="table table-condensed">
-                    <tr>
-                <td>ALLOWED_COMPONENTS</td>
-                <td class="last">
-                    <p><em>Names of the components that can be requested from the parser.</em></p>
-                    <p></p>
-                </td>
-            </tr>
-            </table>
-
     
             <h2>Properties</h2>
 
@@ -112,10 +101,18 @@
                 <td></td>
             </tr>
                     <tr>
-                <td class="type" id="property_grammar">
+                <td class="type" id="property_config">
                                         protected                                        array
                 </td>
-                <td>$grammar</td>
+                <td>$config</td>
+                <td class="last">Configuration options.</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_extractors">
+                    static                    protected                                        array
+                </td>
+                <td>$extractors</td>
                 <td class="last">Names of the query params for each component.</td>
                 <td></td>
             </tr>
@@ -130,7 +127,7 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method___construct">__construct</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
+                    <a href="#method___construct">__construct</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, array $config)
         
                                             <p>Construct a RequestParser instance.</p>                </div>
                 <div class="col-md-2"></div>
@@ -140,69 +137,39 @@
                     <a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_extractOperations">extractOperations</a>(array $components = null)
+                    <a href="#method_extract">extract</a>()
         
                                             <p>Extract all query Operations from the request.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
+                    array
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_extractPaginate">extractPaginate</a>()
+                    <a href="#method_getConfig">getConfig</a>()
         
-                                            <p>Extract pagination parameters from the request.</p>                </div>
+                                            <p>Retrieve the configuration variables of the parser.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
+                    <a href="../../SehrGut/Eloquery/Contracts/Parser.html"><abbr title="SehrGut\Eloquery\Contracts\Parser">Parser</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_extractFilter">extractFilter</a>()
+                    <a href="#method_setConfig">setConfig</a>(string $key, mixed $value)
         
-                                            <p>Extract filter constraints from the request.</p>                </div>
+                                            <p>Set config value on the parser.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    <a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
+                    array
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_extractSort">extractSort</a>()
+                    <a href="#method_makeExtractors">makeExtractors</a>()
         
-                                            <p>Extract sort orders from the request.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_getOperationsForComponent">getOperationsForComponent</a>(string $component)
-        
-                                            <p>Extract all operations for a given component.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    string
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_getNameOfExtractMethod">getNameOfExtractMethod</a>(string $component)
-        
-                                            <p>Build the extract method name for given component.</p>                </div>
-                <div class="col-md-2"></div>
-            </div>
-                    <div class="row">
-                <div class="col-md-2 type">
-                    <a href="../../SehrGut/Eloquery/Contracts/Grammar.html"><abbr title="SehrGut\Eloquery\Contracts\Grammar">Grammar</abbr></a>
-                </div>
-                <div class="col-md-8 type">
-                    <a href="#method_getGrammarForOperation">getGrammarForOperation</a>(string $operation)
-        
-                                            <p>Get the appropriate grammar for given operation.</p>                </div>
+                                            <p>Instantiate the extractors.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -213,9 +180,9 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at         line 45</div>
+        <div class="location">at         line 41</div>
         <code>                    
-    <strong>__construct</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
+    <strong>__construct</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request, array $config)
         </code>
     </h3>
     <div class="details">
@@ -233,6 +200,11 @@
                 <td>$request</td>
                 <td></td>
             </tr>
+                    <tr>
+                <td>array</td>
+                <td>$config</td>
+                <td></td>
+            </tr>
             </table>
 
             
@@ -243,10 +215,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_extractOperations">
-        <div class="location">at         line 56</div>
+                    <h3 id="method_extract">
+        <div class="location">at         line 52</div>
         <code>                    <a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
-    <strong>extractOperations</strong>(array $components = null)
+    <strong>extract</strong>()
         </code>
     </h3>
     <div class="details">
@@ -256,12 +228,77 @@
                     <div class="method-description">
                                     <p>Extract all query Operations from the request.</p>                                                </div>
                 <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getConfig">
+        <div class="location">at         line 68</div>
+        <code>                    array
+    <strong>getConfig</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Retrieve the configuration variables of the parser.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setConfig">
+        <div class="location">at         line 80</div>
+        <code>                    <a href="../../SehrGut/Eloquery/Contracts/Parser.html"><abbr title="SehrGut\Eloquery\Contracts\Parser">Parser</abbr></a>
+    <strong>setConfig</strong>(string $key, mixed $value)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Set config value on the parser.</p>                                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
-                <td>array</td>
-                <td>$components</td>
+                <td>string</td>
+                <td>$key</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
                 <td></td>
             </tr>
             </table>
@@ -271,7 +308,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a></td>
+            <td><a href="../../SehrGut/Eloquery/Contracts/Parser.html"><abbr title="SehrGut\Eloquery\Contracts\Parser">Parser</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -283,40 +320,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_extractPaginate">
-        <div class="location">at         line 76</div>
-        <code>                    <a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
-    <strong>extractPaginate</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Extract pagination parameters from the request.</p>                                                </div>
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_extractFilter">
+                    <h3 id="method_makeExtractors">
         <div class="location">at         line 92</div>
-        <code>                    <a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
-    <strong>extractFilter</strong>()
+        <code>            protected        array
+    <strong>makeExtractors</strong>()
         </code>
     </h3>
     <div class="details">
@@ -324,164 +331,14 @@
     
 
                     <div class="method-description">
-                                    <p>Extract filter constraints from the request.</p>                                                </div>
+                                    <p>Instantiate the extractors.</p>                                                </div>
                 <div class="tags">
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td><a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_extractSort">
-        <div class="location">at         line 108</div>
-        <code>                    <a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
-    <strong>extractSort</strong>()
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Extract sort orders from the request.</p>                                                </div>
-                <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getOperationsForComponent">
-        <div class="location">at         line 125</div>
-        <code>            protected        <a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
-    <strong>getOperationsForComponent</strong>(string $component)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Extract all operations for a given component.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$component</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a></td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getNameOfExtractMethod">
-        <div class="location">at         line 146</div>
-        <code>            protected        string
-    <strong>getNameOfExtractMethod</strong>(string $component)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Build the extract method name for given component.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$component</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td>string</td>
-            <td></td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-            </div>
-                    <div class="method-item">
-                    <h3 id="method_getGrammarForOperation">
-        <div class="location">at         line 157</div>
-        <code>            protected        <a href="../../SehrGut/Eloquery/Contracts/Grammar.html"><abbr title="SehrGut\Eloquery\Contracts\Grammar">Grammar</abbr></a>
-    <strong>getGrammarForOperation</strong>(string $operation)
-        </code>
-    </h3>
-    <div class="details">
-            
-    
-
-                    <div class="method-description">
-                                    <p>Get the appropriate grammar for given operation.</p>                                                </div>
-                <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>string</td>
-                <td>$operation</td>
-                <td></td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table class="table table-condensed">
-        <tr>
-            <td><a href="../../SehrGut/Eloquery/Contracts/Grammar.html"><abbr title="SehrGut\Eloquery\Contracts\Grammar">Grammar</abbr></a></td>
+            <td>array</td>
             <td></td>
         </tr>
     </table>

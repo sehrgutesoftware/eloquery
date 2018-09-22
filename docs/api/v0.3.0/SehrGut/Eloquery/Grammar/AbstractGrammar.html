@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>SehrGut\Eloquery\Providers\EloqueryServiceProvider | Eloquery API Documentation</title>
+    <title>SehrGut\Eloquery\Grammar\AbstractGrammar | Eloquery API Documentation</title>
 
             <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:SehrGut_Eloquery_Providers_EloqueryServiceProvider" data-root-path="../../../">
+    <body id="class" data-name="class:SehrGut_Eloquery_Grammar_AbstractGrammar" data-root-path="../../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -66,20 +66,21 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../../SehrGut.html">SehrGut</a></li><li class="backslash">\</li><li><a href="../../../SehrGut/Eloquery.html">Eloquery</a></li><li class="backslash">\</li><li><a href="../../../SehrGut/Eloquery/Providers.html">Providers</a></li><li class="backslash">\</li><li>EloqueryServiceProvider</li>
+                        <li><a href="../../../SehrGut.html">SehrGut</a></li><li class="backslash">\</li><li><a href="../../../SehrGut/Eloquery.html">Eloquery</a></li><li class="backslash">\</li><li><a href="../../../SehrGut/Eloquery/Grammar.html">Grammar</a></li><li class="backslash">\</li><li>AbstractGrammar</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            EloqueryServiceProvider
+            AbstractGrammar
                 
         </h1>
     </div>
 
-    <p>    class
-    <strong>EloqueryServiceProvider</strong>        extends <abbr title="Illuminate\Support\ServiceProvider">ServiceProvider</abbr>
+    <p>abstract     class
+    <strong>AbstractGrammar</strong>        implements
+        <a href="../../../SehrGut/Eloquery/Contracts/Grammar.html"><abbr title="SehrGut\Eloquery\Contracts\Grammar">Grammar</abbr></a>
 </p>
 
         
@@ -88,6 +89,19 @@
     
     
     
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_config">
+                                        protected                                        array
+                </td>
+                <td>$config</td>
+                <td class="last">Configuration options for this Grammar instance.</td>
+                <td></td>
+            </tr>
+            </table>
+
     
             <h2>Methods</h2>
 
@@ -97,7 +111,18 @@
                     
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_register">register</a>()
+                    <a href="#method___construct">__construct</a>(array $config = [])
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_extract">extract</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
         
                                             <p class="no-description">No description</p>
                                     </div>
@@ -110,10 +135,10 @@
 
             <div id="method-details">
                     <div class="method-item">
-                    <h3 id="method_register">
-        <div class="location">at         line 10</div>
+                    <h3 id="method___construct">
+        <div class="location">at         line 18</div>
         <code>                    
-    <strong>register</strong>()
+    <strong>__construct</strong>(array $config = [])
         </code>
     </h3>
     <div class="details">
@@ -121,7 +146,55 @@
     
 
                 <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$config</td>
+                <td></td>
+            </tr>
+            </table>
+
             
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_extract">
+        <div class="location">at         line 24</div>
+        <code>    abstract                array
+    <strong>extract</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><abbr title="Illuminate\Http\Request">Request</abbr></td>
+                <td>$request</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>array</td>
+            <td></td>
+        </tr>
+    </table>
+
             
             
                     </div>

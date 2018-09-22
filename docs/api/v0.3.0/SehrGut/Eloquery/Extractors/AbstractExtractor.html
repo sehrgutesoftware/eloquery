@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="robots" content="index, follow, all" />
-    <title>SehrGut\Eloquery\Grammar\FilterGrammar | Eloquery API Documentation</title>
+    <title>SehrGut\Eloquery\Extractors\AbstractExtractor | Eloquery API Documentation</title>
 
             <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
@@ -19,7 +19,7 @@
     
     </head>
 
-    <body id="class" data-name="class:SehrGut_Eloquery_Grammar_FilterGrammar" data-root-path="../../../">
+    <body id="class" data-name="class:SehrGut_Eloquery_Extractors_AbstractExtractor" data-root-path="../../../">
             <div id="content">
         <div id="left-column">
                 <div id="control-panel">
@@ -66,63 +66,76 @@
                         <div class="namespace-breadcrumbs">
             <ol class="breadcrumb">
                 <li><span class="label label-default">class</span></li>
-                        <li><a href="../../../SehrGut.html">SehrGut</a></li><li class="backslash">\</li><li><a href="../../../SehrGut/Eloquery.html">Eloquery</a></li><li class="backslash">\</li><li><a href="../../../SehrGut/Eloquery/Grammar.html">Grammar</a></li><li class="backslash">\</li><li>FilterGrammar</li>
+                        <li><a href="../../../SehrGut.html">SehrGut</a></li><li class="backslash">\</li><li><a href="../../../SehrGut/Eloquery.html">Eloquery</a></li><li class="backslash">\</li><li><a href="../../../SehrGut/Eloquery/Extractors.html">Extractors</a></li><li class="backslash">\</li><li>AbstractExtractor</li>
             </ol>
         </div>
                 <div id="page-content">
                 
     <div class="page-header">
         <h1>
-            FilterGrammar
+            AbstractExtractor
                 
         </h1>
     </div>
 
-    <p>    class
-    <strong>FilterGrammar</strong>        implements
-        <a href="../../../SehrGut/Eloquery/Contracts/Grammar.html"><abbr title="SehrGut\Eloquery\Contracts\Grammar">Grammar</abbr></a>
+    <p>abstract     class
+    <strong>AbstractExtractor</strong>        implements
+        <a href="../../../SehrGut/Eloquery/Contracts/Extractor.html"><abbr title="SehrGut\Eloquery\Contracts\Extractor">Extractor</abbr></a>
 </p>
 
         
     
 
-            <div class="description">
-            <p>Rules for extracting filter constraints from a Request.</p>            <p>Syntax: <code>?filter[][key]=first_name&amp;filter[][value]=John+Doe&amp;filter[][operator]=equals&amp;filter[][negated]=false</code></p>                    </div>
     
     
     
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_config">
+                                        protected                                        array
+                </td>
+                <td>$config</td>
+                <td class="last">Configuration options for the Extractor.</td>
+                <td></td>
+            </tr>
+            </table>
+
     
             <h2>Methods</h2>
 
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    array
+                    <a href="../../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_extract">extract</a>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
         
-                                            <p>Extract an array of filter options from the request.</p>                </div>
+                                            <p class="no-description">No description</p>
+                                    </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    void
+                    <abbr title="SehrGut\Eloquery\Contracts\OperationCollection">OperationCollection</abbr>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_validate">validate</a>(array $filters)
+                    <a href="#method___construct">__construct</a>(array $config)
         
-                                            <p>Validate the extacted array.</p>                </div>
+                                            <p class="no-description">No description</p>
+                                    </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    array
+                    <a href="../../../SehrGut/Eloquery/Contracts/Grammar.html"><abbr title="SehrGut\Eloquery\Contracts\Grammar">Grammar</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_fillWithDefaults">fillWithDefaults</a>(array $filters)
+                    <a href="#method_makeGrammar">makeGrammar</a>()
         
-                                            <p>Replace missing values with their defaults.</p>                </div>
+                                            <p>Get an instance of the associated Grammar for this Extractor.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
             </div>
@@ -133,8 +146,8 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_extract">
-        <div class="location">at         line 24</div>
-        <code>                    array
+        <div class="location">at         line 21</div>
+        <code>    abstract                <a href="../../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a>
     <strong>extract</strong>(<abbr title="Illuminate\Http\Request">Request</abbr> $request)
         </code>
     </h3>
@@ -142,8 +155,6 @@
             
     
 
-                    <div class="method-description">
-                                    <p>Extract an array of filter options from the request.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
@@ -160,7 +171,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td>array</td>
+            <td><a href="../../../SehrGut/Eloquery/OperationCollection.html"><abbr title="SehrGut\Eloquery\OperationCollection">OperationCollection</abbr></a></td>
             <td></td>
         </tr>
     </table>
@@ -172,25 +183,23 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_validate">
-        <div class="location">at         line 43</div>
-        <code>            protected        void
-    <strong>validate</strong>(array $filters)
+                    <h3 id="method___construct">
+        <div class="location">at         line 24</div>
+        <code>                    <abbr title="SehrGut\Eloquery\Contracts\OperationCollection">OperationCollection</abbr>
+    <strong>__construct</strong>(array $config)
         </code>
     </h3>
     <div class="details">
             
     
 
-                    <div class="method-description">
-                                    <p>Validate the extacted array.</p>                                                </div>
                 <div class="tags">
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
                     <tr>
                 <td>array</td>
-                <td>$filters</td>
+                <td>$config</td>
                 <td></td>
             </tr>
             </table>
@@ -200,7 +209,7 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td>void</td>
+            <td><abbr title="SehrGut\Eloquery\Contracts\OperationCollection">OperationCollection</abbr></td>
             <td></td>
         </tr>
     </table>
@@ -212,10 +221,10 @@
 
             </div>
                     <div class="method-item">
-                    <h3 id="method_fillWithDefaults">
-        <div class="location">at         line 72</div>
-        <code>            protected        array
-    <strong>fillWithDefaults</strong>(array $filters)
+                    <h3 id="method_makeGrammar">
+        <div class="location">at         line 34</div>
+        <code>            protected        <a href="../../../SehrGut/Eloquery/Contracts/Grammar.html"><abbr title="SehrGut\Eloquery\Contracts\Grammar">Grammar</abbr></a>
+    <strong>makeGrammar</strong>()
         </code>
     </h3>
     <div class="details">
@@ -223,24 +232,14 @@
     
 
                     <div class="method-description">
-                                    <p>Replace missing values with their defaults.</p>                                                </div>
+                                    <p>Get an instance of the associated Grammar for this Extractor.</p>                                                </div>
                 <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table class="table table-condensed">
-                    <tr>
-                <td>array</td>
-                <td>$filters</td>
-                <td></td>
-            </tr>
-            </table>
-
             
                             <h4>Return Value</h4>
 
                     <table class="table table-condensed">
         <tr>
-            <td>array</td>
+            <td><a href="../../../SehrGut/Eloquery/Contracts/Grammar.html"><abbr title="SehrGut\Eloquery\Contracts\Grammar">Grammar</abbr></a></td>
             <td></td>
         </tr>
     </table>
