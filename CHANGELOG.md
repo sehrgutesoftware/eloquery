@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.3.2
+- Fix passing of filter config down to the grammar instance
+
 ### v0.3.1
 - Prepend table name to field when filtering on a relationship
 
