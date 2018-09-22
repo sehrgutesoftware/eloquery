@@ -4,6 +4,7 @@ namespace SehrGut\Eloquery\Tests\Operations;
 
 use Closure;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Mockery;
 use SehrGut\Eloquery\Operations\Filter;
 use SehrGut\Eloquery\Operators;
@@ -210,10 +211,19 @@ class FilterTest extends OperationTestCase
 
     public function test_it_applies_a_constraint_on_a_relationship()
     {
+        $model = Mockery::mock(Model::class);
+        $model->shouldReceive('getTable')
+            ->once()
+            ->andReturn('related_table');
+
         $nestedBuilder = Mockery::mock(Builder::class);
+        $nestedBuilder->shouldReceive('getModel')
+            ->once()
+            ->andReturn($model);
         $nestedBuilder->shouldReceive('where')
             ->once()
-            ->with('field', '=', 'value');
+            ->with('related_table.field', '=', 'value');
+
 
         $this->builder->shouldReceive('whereHas')
             ->once()

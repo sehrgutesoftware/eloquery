@@ -106,7 +106,7 @@ class Filter implements Operation
      */
     protected function apply(Builder $builder)
     {
-        $this->getOperation()->applyToBuilder($builder);
+        $this->getOperation($builder)->applyToBuilder($builder);
     }
 
     /**
@@ -136,29 +136,32 @@ class Filter implements Operation
     /**
      * Get the attribute that this filter compares without relationship prefix.
      *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return string
      */
-    protected function getBareAttribute(): string
+    protected function getBareAttribute(Builder $builder): string
     {
         if (!$this->actsOnRelation()) {
             return $this->attribute;
         }
 
         $fragments = $this->getAttributeFragments();
+        $table = $builder->getModel()->getTable();
 
-        return end($fragments);
+        return $table . '.' . end($fragments);
     }
 
     /**
      * Get an Operation instance for the current filter.
      *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return Operation
      */
-    protected function getOperation(): Operation
+    protected function getOperation(Builder $builder): Operation
     {
         $class = static::$constraints[$this->operator];
 
-        return new $class($this->getBareAttribute(), $this->value, $this->negated);
+        return new $class($this->getBareAttribute($builder), $this->value, $this->negated);
     }
 
     /**

@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.3.1
+- Prepend table name to field when filtering on a relationship
+
 ### v0.3.0
 - Refactor Extractors into separate classes
 - Introduce config file
