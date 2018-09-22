@@ -46,7 +46,7 @@ class Eloquery
      */
     public function allowFilterKeys(array $keys): Eloquery
     {
-        $this->requestParser->setConfig('filter.whitelist', $keys);
+        $this->requestParser->setConfig('filter.config.whitelist', $keys);
 
         return $this;
     }

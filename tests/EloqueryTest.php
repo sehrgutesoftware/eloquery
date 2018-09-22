@@ -32,7 +32,7 @@ class EloqueryTest extends TestCase
         $parser = Mockery::mock(RequestParser::class);
         $parser->shouldReceive('setConfig')
             ->once()
-            ->with('filter.whitelist', ['item1', 'item2']);
+            ->with('filter.config.whitelist', ['item1', 'item2']);
 
         $eloquery = new Eloquery($parser);
 

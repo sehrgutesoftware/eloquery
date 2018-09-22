@@ -34,7 +34,7 @@ abstract class AbstractExtractor implements Extractor
     protected function makeGrammar(): Grammar
     {
         $class = $this->config['grammar'];
-        $config = Arr::get($this->config, 'grammar.config', []);
+        $config = Arr::get($this->config, 'config', []);
 
         return new $class($config);
     }
