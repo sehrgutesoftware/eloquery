@@ -1,5 +1,10 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.3.0
+- Refactor Extractors into separate classes
+- Introduce config file
+- Allow whitelisting of filter keys
+
 ### v0.2.2
 - Add missing test for filtering on relationships
 - Fix a critical bug when filtering on relationships
