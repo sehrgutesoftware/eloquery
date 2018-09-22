@@ -26,4 +26,17 @@ class EloqueryTest extends TestCase
         $eloquery = new Eloquery($parser);
         $eloquery->apply($builder);
     }
+
+    public function test_it_passes_a_filter_whitelist_to_the_parser()
+    {
+        $parser = Mockery::mock(RequestParser::class);
+        $parser->shouldReceive('setConfig')
+            ->once()
+            ->with('filter.whitelist', ['item1', 'item2']);
+
+        $eloquery = new Eloquery($parser);
+
+        $retval = $eloquery->allowFilterKeys(['item1', 'item2']);
+        $this->assertEquals($eloquery, $retval);
+    }
 }

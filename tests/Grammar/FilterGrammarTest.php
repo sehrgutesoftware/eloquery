@@ -114,4 +114,29 @@ class FilterGrammarTest extends GrammarTestCase
         $grammar = new FilterGrammar();
         $result = $grammar->extract($this->request);
     }
+
+    public function test_it_ignores_keys_not_contained_in_whitelist()
+    {
+        $this->request->shouldReceive('get')
+            ->once()
+            ->with('filter')
+            ->andReturn([
+                ['key' => 'wantedField', 'value' => 'wantedValue'],
+                ['key' => 'badField', 'value' => 'unwantedValue'],
+                ['key' => 'anotherBadField', 'value' => 'unwantedValue'],
+            ]);
+
+        $grammar = new FilterGrammar(['whitelist' => ['wantedField']]);
+        $result = $grammar->extract($this->request);
+
+        $this->assertCount(1, $result);
+        $this->assertEquals([
+            [
+                'key' => 'wantedField',
+                'value' => 'wantedValue',
+                'operator' => 'EQUALS',
+                'negated' => false,
+            ],
+        ], $result);
+    }
 }

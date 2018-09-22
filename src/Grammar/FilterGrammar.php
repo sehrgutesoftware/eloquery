@@ -3,8 +3,7 @@
 namespace SehrGut\Eloquery\Grammar;
 
 use Illuminate\Http\Request;
-use SehrGut\Eloquery\Contracts\Grammar;
-use SehrGut\Eloquery\Operations\Filter;
+use Illuminate\Support\Arr;
 use SehrGut\Eloquery\Operators;
 use UnexpectedValueException;
 
@@ -13,7 +12,7 @@ use UnexpectedValueException;
  *
  * Syntax: `?filter[][key]=first_name&filter[][value]=John+Doe&filter[][operator]=equals&filter[][negated]=false`
  */
-class FilterGrammar implements Grammar
+class FilterGrammar extends AbstractGrammar
 {
     /**
      * Extract an array of filter options from the request.
@@ -30,6 +29,7 @@ class FilterGrammar implements Grammar
         }
 
         $this->validate($filters);
+        $filters = $this->applyWhitelist($filters);
 
         return $this->fillWithDefaults($filters);
     }
@@ -44,7 +44,7 @@ class FilterGrammar implements Grammar
     {
         if (!is_array($filters)) {
             throw new UnexpectedValueException(
-                'filter must be an array, eg. [["key" => "someField", "value" => "desiredValue",'.
+                'filter must be an array, eg. [["key" => "someField", "value" => "desiredValue",' .
                 ' "operator" => "equals"], […], …'
             );
         }
@@ -75,6 +75,25 @@ class FilterGrammar implements Grammar
                 implode(', ', Operators::all())
             ));
         }
+    }
+
+    /**
+     * Drop all items that are not contained in the whitelist.
+     *
+     * @param  array  $filters
+     * @return array
+     */
+    protected function applyWhitelist(array $filters): array
+    {
+        $whitelist = Arr::get($this->config, 'whitelist', null);
+
+        if (is_null($whitelist)) {
+            return $filters;
+        }
+
+        return array_filter($filters, function ($item) use ($whitelist) {
+            return in_array($item['key'], $whitelist);
+        });
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace SehrGut\Eloquery\Extractors;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use SehrGut\Eloquery\Contracts\Extractor;
 use SehrGut\Eloquery\Contracts\Grammar;
 use SehrGut\Eloquery\OperationCollection;
@@ -33,7 +34,8 @@ abstract class AbstractExtractor implements Extractor
     protected function makeGrammar(): Grammar
     {
         $class = $this->config['grammar'];
+        $config = Arr::get($this->config, 'grammar.config', []);
 
-        return new $class();
+        return new $class($config);
     }
 }

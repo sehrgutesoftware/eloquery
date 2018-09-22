@@ -3,6 +3,7 @@
 namespace SehrGut\Eloquery;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use SehrGut\Eloquery\Contracts\Parser;
 
 class RequestParser implements Parser
@@ -57,6 +58,30 @@ class RequestParser implements Parser
         }
 
         return $operations;
+    }
+
+    /**
+     * Retrieve the configuration variables of the parser.
+     *
+     * @return array
+     */
+    public function getConfig(): array
+    {
+        return $this->config;
+    }
+
+    /**
+     * Set config value on the parser.
+     *
+     * @param string $key
+     * @param mixed $value
+     * @return $this
+     */
+    public function setConfig(string $key, $value): Parser
+    {
+        Arr::set($this->config, $key, $value);
+
+        return $this;
     }
 
     /**

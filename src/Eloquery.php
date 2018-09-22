@@ -37,4 +37,17 @@ class Eloquery
 
         return $operations->applyToBuilder($builder);
     }
+
+    /**
+     * Set the filter whitelist.
+     *
+     * @param  array  $keys
+     * @return $this
+     */
+    public function allowFilterKeys(array $keys): Eloquery
+    {
+        $this->requestParser->setConfig('filter.whitelist', $keys);
+
+        return $this;
+    }
 }

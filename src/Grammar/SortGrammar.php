@@ -3,7 +3,6 @@
 namespace SehrGut\Eloquery\Grammar;
 
 use Illuminate\Http\Request;
-use SehrGut\Eloquery\Contracts\Grammar;
 use UnexpectedValueException;
 
 /**
@@ -11,7 +10,7 @@ use UnexpectedValueException;
  *
  * Syntax: `?sort[][key]=first_name&sort[][direction]=ASC`
  */
-class SortGrammar implements Grammar
+class SortGrammar extends AbstractGrammar
 {
     /**
      * Extract an array of sort options from the request.

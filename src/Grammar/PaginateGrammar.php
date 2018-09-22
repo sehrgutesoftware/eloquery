@@ -3,15 +3,13 @@
 namespace SehrGut\Eloquery\Grammar;
 
 use Illuminate\Http\Request;
-use SehrGut\Eloquery\Contracts\Grammar;
-use UnexpectedValueException;
 
 /**
  * Rules for extracting pagination parameters from a request.
  *
  * Syntax: `?page=1&limit=10`
  */
-class PaginateGrammar implements Grammar
+class PaginateGrammar extends AbstractGrammar
 {
     /**
      * The default limit when none is given.

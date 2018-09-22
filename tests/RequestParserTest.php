@@ -102,4 +102,23 @@ class RequestParserTest extends TestCase
         $this->assertEquals('CONTAINS', $operationTwo->operator);
         $this->assertTrue($operationTwo->negated);
     }
+
+    public function test_it_returns_config_variables()
+    {
+        $parser = new RequestParser(new Request(), $this->getDefaultConfig());
+        $this->assertEquals($this->getDefaultConfig(), $parser->getConfig());
+    }
+
+    public function test_it_updates_config_variables()
+    {
+        $parser = new RequestParser(new Request(), $this->getDefaultConfig());
+        $retval = $parser->setConfig('filter.whitelist', ['item1', 'item2']);
+
+        $newConfig = array_merge_recursive($this->getDefaultConfig(), [
+            'filter' => ['whitelist' => ['item1', 'item2']]
+        ]);
+
+        $this->assertEquals($parser, $retval);
+        $this->assertEquals($newConfig, $parser->getConfig());
+    }
 }

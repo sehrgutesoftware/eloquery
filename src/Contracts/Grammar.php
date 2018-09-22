@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 interface Grammar
 {
     /**
+     * Construct a new Grammar instance.
+     *
+     * @param array $config
+     */
+    public function __construct(array $config = []);
+
+    /**
      * Extract all options from the request.
      *
      * @param Request $request
