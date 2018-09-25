@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.3.5
+- BREAKING: Disallow filters by default, require to whitelist keys explicitly
+
 ### v0.3.4
 - Rename `Eloquery::withRequest(Request)` to `Eloquery::from(Request)`
 
