@@ -2,12 +2,21 @@
 
 namespace SehrGut\Eloquery\Tests;
 
-use Illuminate\Database\Eloquent\Builder;
 use Mockery;
 use PHPUnit\Framework\TestCase as PhpUnitTestCase;
 
 class TestCase extends PhpUnitTestCase
 {
+    /**
+     * Get default configuration options.
+     *
+     * @return array
+     */
+    protected function getDefaultConfig(): array
+    {
+        return require __DIR__ . '/../config/eloquery.php';
+    }
+
     public function tearDown()
     {
         parent::tearDown();

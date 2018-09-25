@@ -16,7 +16,7 @@ class FilterGrammarTest extends GrammarTestCase
                 ['key' => 'someField', 'value' => 'desiredValue', 'operator' => 'BETWEEN', 'negated' => true]
             ]);
 
-        $grammar = new FilterGrammar();
+        $grammar = new FilterGrammar(['whitelist' => ['someField']]);
         $result = $grammar->extract($this->request);
 
         $this->assertEquals([
@@ -38,7 +38,7 @@ class FilterGrammarTest extends GrammarTestCase
                 ['key' => 'someField', 'value' => 'desiredValue']
             ]);
 
-        $grammar = new FilterGrammar();
+        $grammar = new FilterGrammar(['whitelist' => ['someField']]);
         $result = $grammar->extract($this->request);
 
         $this->assertEquals([
@@ -138,5 +138,22 @@ class FilterGrammarTest extends GrammarTestCase
                 'negated' => false,
             ],
         ], $result);
+    }
+
+    public function test_it_defaults_to_ignoring_all_keys_if_no_whitelist_is_present()
+    {
+        $this->request->shouldReceive('get')
+            ->once()
+            ->with('filter')
+            ->andReturn([
+                ['key' => 'badField', 'value' => 'unwantedValue'],
+                ['key' => 'anotherBadField', 'value' => 'unwantedValue'],
+            ]);
+
+        $grammar = new FilterGrammar();
+        $result = $grammar->extract($this->request);
+
+        $this->assertCount(0, $result);
+        $this->assertEquals([], $result);
     }
 }

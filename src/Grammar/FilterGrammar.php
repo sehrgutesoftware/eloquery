@@ -85,9 +85,9 @@ class FilterGrammar extends AbstractGrammar
      */
     protected function applyWhitelist(array $filters): array
     {
-        $whitelist = Arr::get($this->config, 'whitelist', null);
+        $whitelist = Arr::get($this->config, 'whitelist', []);
 
-        if (is_null($whitelist)) {
+        if ($whitelist === false) {
             return $filters;
         }
 
