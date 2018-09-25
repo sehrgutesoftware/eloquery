@@ -22,16 +22,6 @@ class OperationResult
     }
 
     /**
-     * Set the pagination metadata on the result.
-     *
-     * @param array $paginationMeta
-     */
-    public function setPaginationMeta(array $paginationMeta)
-    {
-        $this->paginationMeta = $paginationMeta;
-    }
-
-    /**
      * Get the pagination metadata.
      *
      * @return array
