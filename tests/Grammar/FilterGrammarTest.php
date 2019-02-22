@@ -2,6 +2,7 @@
 
 namespace SehrGut\Eloquery\Tests\Grammar;
 
+use UnexpectedValueException;
 use SehrGut\Eloquery\Grammar\FilterGrammar;
 use SehrGut\Eloquery\Operators;
 
@@ -51,25 +52,25 @@ class FilterGrammarTest extends GrammarTestCase
         ], $result);
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function test_it_bails_when_filters_are_not_an_array()
     {
+        $this->expectException(UnexpectedValueException::class);
+        $this->expectExceptionMessage('filter must be an array, eg. [["key" => "someField", "value" => "desiredValue", "operator" => "equals"], […], …');
+
         $this->request->shouldReceive('get')
             ->once()
             ->with('filter')
             ->andReturn('a bad return value');
 
         $grammar = new FilterGrammar();
-        $result = $grammar->extract($this->request);
+        $grammar->extract($this->request);
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function test_it_bails_when_key_is_missing_from_filters()
     {
+        $this->expectException(UnexpectedValueException::class);
+        $this->expectExceptionMessage('each filter must contain both key and value');
+
         $this->request->shouldReceive('get')
             ->once()
             ->with('filter')
@@ -82,11 +83,11 @@ class FilterGrammarTest extends GrammarTestCase
         $result = $grammar->extract($this->request);
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function test_it_bails_when_value_is_missing_from_filters()
     {
+        $this->expectException(UnexpectedValueException::class);
+        $this->expectExceptionMessage('each filter must contain both key and value');
+
         $this->request->shouldReceive('get')
             ->once()
             ->with('filter')
@@ -99,11 +100,11 @@ class FilterGrammarTest extends GrammarTestCase
         $result = $grammar->extract($this->request);
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function test_it_bails_when_operator_is_invalid()
     {
+        $this->expectException(UnexpectedValueException::class);
+        $this->expectExceptionMessage('Invalid filter operator (BOGUS). Must be one of (EQUALS, CONTAINS, STARTS_WITH, ENDS_WITH, GREATER, GREATER_EQUAL, LESS, LESS_EQUAL, IN, BETWEEN)');
+
         $this->request->shouldReceive('get')
             ->once()
             ->with('filter')

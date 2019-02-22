@@ -2,8 +2,6 @@
 
 namespace SehrGut\Eloquery\Tests\Grammar;
 
-use Illuminate\Http\Request;
-use Mockery;
 use SehrGut\Eloquery\Grammar\PaginateGrammar;
 
 class PaginateGrammarTest extends GrammarTestCase
@@ -26,6 +24,7 @@ class PaginateGrammarTest extends GrammarTestCase
             'page' => 3,
         ], $result);
     }
+
     public function test_it_cant_exceed_the_maximum_value_for_limit()
     {
         $this->request->shouldReceive('get')

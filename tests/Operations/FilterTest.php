@@ -6,17 +6,18 @@ use Closure;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Mockery;
+use InvalidArgumentException;
 use SehrGut\Eloquery\Operations\Filter;
 use SehrGut\Eloquery\Operators;
 
 class FilterTest extends OperationTestCase
 {
-    /**
-     * @expectedException InvalidArgumentException
-     */
     public function test_it_throws_an_exception_on_invalid_operator()
     {
-        $filter = new Filter('field', 'value', 'non-exisiting-operator', false);
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid operator: non-exisiting-operator');
+
+        new Filter('field', 'value', 'non-exisiting-operator', false);
     }
 
     public function test_it_applies_equals_constraint()

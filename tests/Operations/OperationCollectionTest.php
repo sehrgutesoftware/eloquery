@@ -4,16 +4,16 @@ namespace SehrGut\Eloquery\Tests\Operations;
 
 use Illuminate\Database\Eloquent\Builder;
 use Mockery;
+use TypeError;
 use SehrGut\Eloquery\Contracts\Operation;
 use SehrGut\Eloquery\OperationCollection;
 
 class OperationCollectionTest extends OperationTestCase
 {
-    /**
-     * @expectedException TypeError
-     */
     public function test_it_rejects_non_operation_items()
     {
+        $this->expectException(TypeError::class);
+
         new OperationCollection(['foo']);
     }
 

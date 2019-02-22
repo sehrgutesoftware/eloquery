@@ -10,7 +10,7 @@ class OperationTestCase extends TestCase
 {
     protected $builder;
 
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
