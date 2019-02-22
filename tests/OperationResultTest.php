@@ -3,7 +3,6 @@
 namespace SehrGut\Eloquery\Tests;
 
 use SehrGut\Eloquery\OperationResult;
-use SehrGut\Eloquery\Operators;
 
 class OperationResultTest extends TestCase
 {

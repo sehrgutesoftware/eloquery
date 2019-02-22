@@ -10,7 +10,7 @@ class GrammarTestCase extends TestCase
 {
     protected $request;
 
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
