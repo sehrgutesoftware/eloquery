@@ -29,7 +29,7 @@ class BooksController extends Controller
     /**
      * List all records of type `Book`.
      */
-    public function index(RequestParser $parser)
+    public function index()
     {
         $builder = Book::query();
         Eloquery::apply($builder);
