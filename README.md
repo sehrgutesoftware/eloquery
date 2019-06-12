@@ -66,7 +66,8 @@ composer docs
 ```
 
 ## Alternatives
-- Bruno: [https://github.com/esbenp/bruno](https://github.com/esbenp/bruno)
+- [esbenp/bruno](https://github.com/esbenp/bruno)
+- [spatie/laravel-query-builder](https://github.com/spatie/laravel-query-builder)
 
 ## License
 This software is licensed under the [MIT License](https://opensource.org/licenses/MIT). See [LICENSE.txt](LICENSE.txt) for details.
