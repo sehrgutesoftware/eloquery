@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.3.6
+- Remove Illuminate\Database\Eloquent\Builder typehints
+
 ### v0.3.5
 - BREAKING: Disallow filters by default, require to whitelist keys explicitly
 
