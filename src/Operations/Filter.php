@@ -2,7 +2,6 @@
 
 namespace SehrGut\Eloquery\Operations;
 
-use Illuminate\Database\Eloquent\Builder;
 use SehrGut\Eloquery\Contracts\Operation;
 use SehrGut\Eloquery\OperationResult;
 use SehrGut\Eloquery\Operators;
@@ -82,10 +81,10 @@ class Filter implements Operation
     /**
      * Apply the filter to a query builder.
      *
-     * @param Builder $builder
+     * @param $builder
      * @return OperationResult|null
      */
-    public function applyToBuilder(Builder $builder): ?OperationResult
+    public function applyToBuilder($builder): ?OperationResult
     {
         if ($this->actsOnRelation()) {
             $builder->whereHas($this->getRelation(), function ($relatedBuilder) {
@@ -101,10 +100,10 @@ class Filter implements Operation
     /**
      * Apply the filter to a query builder (not checking for relationship).
      *
-     * @param Builder $builder
+     * @param mixed $builder
      * @return void
      */
-    protected function apply(Builder $builder)
+    protected function apply($builder)
     {
         $this->getOperation($builder)->applyToBuilder($builder);
     }
@@ -136,10 +135,10 @@ class Filter implements Operation
     /**
      * Get the attribute that this filter compares without relationship prefix.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @param mixed $builder
      * @return string
      */
-    protected function getBareAttribute(Builder $builder): string
+    protected function getBareAttribute($builder): string
     {
         if (!$this->actsOnRelation()) {
             return $this->attribute;
@@ -154,10 +153,10 @@ class Filter implements Operation
     /**
      * Get an Operation instance for the current filter.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @param mixed $builder
      * @return Operation
      */
-    protected function getOperation(Builder $builder): Operation
+    protected function getOperation($builder): Operation
     {
         $class = static::$constraints[$this->operator];
 

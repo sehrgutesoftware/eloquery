@@ -2,7 +2,6 @@
 
 namespace SehrGut\Eloquery\Operations;
 
-use Illuminate\Database\Eloquent\Builder;
 use Psr\Log\InvalidArgumentException;
 use SehrGut\Eloquery\Contracts\Operation;
 use SehrGut\Eloquery\OperationResult;
@@ -46,10 +45,10 @@ class Paginate implements Operation
     /**
      * Apply the pagination constraints to a query builder.
      *
-     * @param Builder $builder
+     * @param mixed $builder
      * @return OperationResult|null
      */
-    public function applyToBuilder(Builder $builder): ?OperationResult
+    public function applyToBuilder($builder): ?OperationResult
     {
         $total = $builder->count();
 

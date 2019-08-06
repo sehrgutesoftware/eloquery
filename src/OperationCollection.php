@@ -2,7 +2,6 @@
 
 namespace SehrGut\Eloquery;
 
-use Illuminate\Database\Eloquent\Builder;
 use SehrGut\Eloquery\Contracts\Operation;
 use SehrGut\Eloquery\OperationResult;
 use SehrGut\Eloquery\Operations\Paginate;
@@ -29,7 +28,7 @@ class OperationCollection implements Operation
     /**
      * Add one or more operations to the collection.
      *
-     * @param array|Operation $operation One or more operations
+     * @param array|Operation $operation_s One or more operations
      * @return self
      */
     public function add($operation_s): self
@@ -71,10 +70,10 @@ class OperationCollection implements Operation
     /**
      * Apply all operations in the collection to the builder.
      *
-     * @param Builder $builder
+     * @param mixed $builder
      * @return OperationResult
      */
-    public function applyToBuilder(Builder $builder): OperationResult
+    public function applyToBuilder($builder): OperationResult
     {
         // Ensure that Paginate operations are applied last
         usort($this->items, [$this, 'sortComparator']);

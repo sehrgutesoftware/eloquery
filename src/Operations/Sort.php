@@ -2,7 +2,6 @@
 
 namespace SehrGut\Eloquery\Operations;
 
-use Illuminate\Database\Eloquent\Builder;
 use SehrGut\Eloquery\Contracts\Operation;
 use SehrGut\Eloquery\OperationResult;
 
@@ -37,10 +36,10 @@ class Sort implements Operation
     /**
      * Apply the sort order to a query builder.
      *
-     * @param Builder $builder
+     * @param mixed $builder
      * @return OperationResult|null
      */
-    public function applyToBuilder(Builder $builder): ?OperationResult
+    public function applyToBuilder($builder): ?OperationResult
     {
         $builder->orderBy($this->attribute, $this->getDirection());
 

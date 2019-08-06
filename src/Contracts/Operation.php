@@ -2,7 +2,6 @@
 
 namespace SehrGut\Eloquery\Contracts;
 
-use Illuminate\Database\Eloquent\Builder;
 use SehrGut\Eloquery\OperationResult;
 
 /**
@@ -13,8 +12,8 @@ interface Operation
     /**
      * Apply the operation to a query builder.
      *
-     * @param Builder $builder
+     * @param mixed $builder
      * @return null|OperationResult
      */
-    public function applyToBuilder(Builder $builder): ?OperationResult;
+    public function applyToBuilder($builder): ?OperationResult;
 }

@@ -2,7 +2,6 @@
 
 namespace SehrGut\Eloquery\Constraints;
 
-use Illuminate\Database\Eloquent\Builder;
 use SehrGut\Eloquery\Contracts\Operation;
 use SehrGut\Eloquery\OperationResult;
 
@@ -53,10 +52,10 @@ abstract class AbstractConstraint implements Operation
     /**
      * Apply the operation to the query builder.
      *
-     * @param Builder $builder
+     * @param mixed $builder
      * @return void
      */
-    public function applyToBuilder(Builder $builder): ?OperationResult
+    public function applyToBuilder($builder): ?OperationResult
     {
         $builder->{$this->getBuilderMethod()}(...$this->getBuilderArguments());
 
