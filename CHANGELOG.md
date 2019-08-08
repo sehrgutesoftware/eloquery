@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.4.0
+- Move extractors definition into config file
+
 ### v0.3.6
 - Remove Illuminate\Database\Eloquent\Builder typehints
 

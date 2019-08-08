@@ -23,17 +23,6 @@ class RequestParser implements Parser
     protected $config = [];
 
     /**
-     * Names of the query params for each component.
-     *
-     * @var array
-     */
-    protected static $extractors = [
-        'filter' => \SehrGut\Eloquery\Extractors\FilterExtractor::class,
-        'sort' => \SehrGut\Eloquery\Extractors\SortExtractor::class,
-        'paginate' => \SehrGut\Eloquery\Extractors\PaginateExtractor::class,
-    ];
-
-    /**
      * Construct a RequestParser instance.
      *
      * @param Request $request
@@ -104,7 +93,7 @@ class RequestParser implements Parser
      */
     protected function makeExtractors(): array
     {
-        foreach (static::$extractors as $type => $class) {
+        foreach (Arr::get($this->config, 'extractors', []) as $type => $class) {
             $extractors[] = new $class($this->config[$type]);
         }
 

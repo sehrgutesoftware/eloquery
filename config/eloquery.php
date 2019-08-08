@@ -4,6 +4,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Extractors
+    |--------------------------------------------------------------------------
+    */
+    'extractors' => [
+        'filter' => \SehrGut\Eloquery\Extractors\FilterExtractor::class,
+        'sort' => \SehrGut\Eloquery\Extractors\SortExtractor::class,
+        'paginate' => \SehrGut\Eloquery\Extractors\PaginateExtractor::class,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Pagination
     |--------------------------------------------------------------------------
     */
