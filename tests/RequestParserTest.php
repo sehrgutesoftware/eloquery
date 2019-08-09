@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use SehrGut\Eloquery\OperationCollection;
 use SehrGut\Eloquery\Operations\Filter;
 use SehrGut\Eloquery\Operations\Paginate;
+use SehrGut\Eloquery\Operations\Sideload;
 use SehrGut\Eloquery\Operations\Sort;
 use SehrGut\Eloquery\RequestParser;
 
@@ -92,6 +93,32 @@ class RequestParserTest extends TestCase
         $this->assertEquals('value_two', $operationTwo->value);
         $this->assertEquals('CONTAINS', $operationTwo->operator);
         $this->assertTrue($operationTwo->negated);
+    }
+
+    public function test_it_extracts_include_operations()
+    {
+        $relations = [
+            'firstRelation',
+            'secondRelation',
+            'nested.relation',
+        ];
+
+        $request = new Request(['include' => $relations]);
+
+        $config = $this->getDefaultConfig();
+        $config['include']['config']['whitelist'] = $relations;
+        $parser = new RequestParser($request, $config);
+
+        $operations = $parser->extract();
+        $this->assertInstanceOf(OperationCollection::class, $operations);
+
+        $count = 0;
+        foreach ($relations as $relation) {
+            $operation = $operations->dump()[$count];
+            $this->assertInstanceOf(Sideload::class, $operation);
+            $this->assertEquals($relation, $operation->relationship);
+            $count++;
+        }
     }
 
     public function test_it_returns_config_variables()
