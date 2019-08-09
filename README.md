@@ -47,8 +47,8 @@ Please refer to [CHANGELOG.md](CHANGELOG.md).
 
 ## Todo
 - [ ] Refactor: Throw custom exception when parameters are invalid / insufficient
-- [ ] Implement "include" grammar & operation
-- [ ] Refactor: Query params should be customizable
+- [x] Implement "include" grammar & operation
+- [ ] Refactor: Query param names should be customizable
 - [ ] Document query params syntax/usage
 
 ## Compatibility

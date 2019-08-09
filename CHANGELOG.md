@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.5.0
+- Implement includes / sideloads
+
 ### v0.4.0
 - Move extractors definition into config file
 
