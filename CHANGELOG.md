@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.5.1
+- Allow setting include whitelist through method on Eloquery instance
+
 ### v0.5.0
 - Implement includes / sideloads
 

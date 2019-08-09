@@ -41,6 +41,19 @@ class EloqueryTest extends TestCase
         $this->assertEquals($eloquery, $retval);
     }
 
+    public function test_it_passes_an_include_whitelist_to_the_parser()
+    {
+        $parser = Mockery::mock(RequestParser::class);
+        $parser->shouldReceive('setConfig')
+            ->once()
+            ->with('include.config.whitelist', ['relation1', 'relation2']);
+
+        $eloquery = new Eloquery($parser);
+
+        $retval = $eloquery->allowIncludes(['relation1', 'relation2']);
+        $this->assertEquals($eloquery, $retval);
+    }
+
     public function test_it_extracts_an_operation_collection()
     {
         $collection = new OperationCollection();

@@ -75,4 +75,17 @@ class Eloquery
 
         return $this;
     }
+
+    /**
+     * Set the include whitelist.
+     *
+     * @param  array  $relationships
+     * @return $this
+     */
+    public function allowIncludes(array $relationships): Eloquery
+    {
+        $this->requestParser->setConfig('include.config.whitelist', $relationships);
+
+        return $this;
+    }
 }
