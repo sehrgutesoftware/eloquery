@@ -88,4 +88,17 @@ class Eloquery
 
         return $this;
     }
+
+    /**
+     * Set the attributes to respect when searching.
+     *
+     * @param  array  $attributes
+     * @return $this
+     */
+    public function searchFields(array $attributes): Eloquery
+    {
+        $this->requestParser->setConfig('search.config.attributes', $attributes);
+
+        return $this;
+    }
 }

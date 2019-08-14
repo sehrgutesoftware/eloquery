@@ -54,6 +54,19 @@ class EloqueryTest extends TestCase
         $this->assertEquals($eloquery, $retval);
     }
 
+    public function test_it_passes_a_search_attribute_list_to_the_parser()
+    {
+        $parser = Mockery::mock(RequestParser::class);
+        $parser->shouldReceive('setConfig')
+            ->once()
+            ->with('search.config.attributes', ['attribute1', 'attribute2']);
+
+        $eloquery = new Eloquery($parser);
+
+        $retval = $eloquery->searchFields(['attribute1', 'attribute2']);
+        $this->assertEquals($eloquery, $retval);
+    }
+
     public function test_it_extracts_an_operation_collection()
     {
         $collection = new OperationCollection();

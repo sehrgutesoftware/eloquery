@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use SehrGut\Eloquery\OperationCollection;
 use SehrGut\Eloquery\Operations\Filter;
 use SehrGut\Eloquery\Operations\Paginate;
+use SehrGut\Eloquery\Operations\Search;
 use SehrGut\Eloquery\Operations\Sideload;
 use SehrGut\Eloquery\Operations\Sort;
 use SehrGut\Eloquery\RequestParser;
@@ -119,6 +120,26 @@ class RequestParserTest extends TestCase
             $this->assertEquals($relation, $operation->relationship);
             $count++;
         }
+    }
+
+    public function test_it_extracts_search_operations()
+    {
+        $query = 'findMe';
+        $attributes = ['attribute1', 'attribute2'];
+
+        $request = new Request(['search' => $query]);
+
+        $config = $this->getDefaultConfig();
+        $config['search']['config']['attributes'] = $attributes;
+        $parser = new RequestParser($request, $config);
+
+        $operations = $parser->extract();
+        $this->assertInstanceOf(OperationCollection::class, $operations);
+
+        $operation = $operations->dump()[0];
+        $this->assertInstanceOf(Search::class, $operation);
+        $this->assertEquals($query, $operation->query);
+        $this->assertEquals($attributes, $operation->attributes);
     }
 
     public function test_it_returns_config_variables()
