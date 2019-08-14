@@ -23,4 +23,17 @@ class SearchGrammarTest extends GrammarTestCase
             ],
         ], $result);
     }
+
+    public function test_it_extracts_ignores_search_when_query_param_is_missing()
+    {
+        $this->request->shouldReceive('has')
+            ->once()
+            ->with('search')
+            ->andReturn(false);
+
+        $grammar = new SearchGrammar();
+        $result = $grammar->extract($this->request);
+
+        $this->assertEquals([], $result);
+    }
 }

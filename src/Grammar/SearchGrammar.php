@@ -20,6 +20,10 @@ class SearchGrammar extends AbstractGrammar
      */
     public function extract(Request $request): array
     {
+        if (!$request->has('search')) {
+            return [];
+        }
+
         $search = $request->get('search');
 
         if (is_null($search) or $search === '') {
