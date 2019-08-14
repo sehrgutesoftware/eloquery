@@ -1,5 +1,9 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.6.2
+- Allow setting default and max page size via config
+- Fix SearchGrammarTest
+
 ### v0.6.1
 - Ignore search when query param is missing
 
