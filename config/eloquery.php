@@ -26,6 +26,12 @@ return [
         // the request and extracting the corresponding constraints from it.
         'grammar' => \SehrGut\Eloquery\Grammar\PaginateGrammar::class,
 
+        // Maximum allowed page size that can be set via query param
+        'max_limit' => 100,
+
+        // Default limit to use if no other page size is specified via query param
+        'default_limit' => 10,
+
     ],
 
     /*

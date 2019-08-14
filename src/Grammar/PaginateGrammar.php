@@ -3,6 +3,7 @@
 namespace SehrGut\Eloquery\Grammar;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 /**
  * Rules for extracting pagination parameters from a request.
@@ -40,9 +41,12 @@ class PaginateGrammar extends AbstractGrammar
      */
     public function extract(Request $request): array
     {
+        $maxLimit = Arr::get($this->config, 'max_limit', static::MAX_LIMIT);
+        $defaultLimit = Arr::get($this->config, 'default_limit', static::DEFAULT_LIMIT);
+
         return [
             'page' => $request->get('page', 1),
-            'limit' => min($request->get('limit', static::DEFAULT_LIMIT), static::MAX_LIMIT),
+            'limit' => min($request->get('limit', $defaultLimit), $maxLimit),
         ];
     }
 }
