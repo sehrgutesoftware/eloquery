@@ -8,6 +8,10 @@ class SearchGrammarTest extends GrammarTestCase
 {
     public function test_it_extracts_search_query_from_request()
     {
+        $this->request->shouldReceive('has')
+            ->once()
+            ->with('search')
+            ->andReturn(true);
         $this->request->shouldReceive('get')
             ->once()
             ->with('search')
