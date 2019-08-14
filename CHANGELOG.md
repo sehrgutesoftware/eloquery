@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.6.0
+- Implement model search through query param"
+
 ### v0.5.1
 - Allow setting include whitelist through method on Eloquery instance
 
