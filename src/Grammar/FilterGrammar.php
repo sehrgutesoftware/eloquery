@@ -124,6 +124,11 @@ class FilterGrammar extends AbstractGrammar
                 $filter['operator'] = Operators::EQUALS;
             }
 
+            // Default value
+            if (!isset($filter['value'])) {
+                $filter['value'] = null;
+            }
+
             // Default negation
             if (!isset($filter['negated'])) {
                 $filter['negated'] = false;

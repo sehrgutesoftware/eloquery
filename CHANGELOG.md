@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.6.4
+- Default to `null` value in filter
+
 ### v0.6.3
 - Introduce `IS_NULL` and `IS_NOT_NULL` operations
 
