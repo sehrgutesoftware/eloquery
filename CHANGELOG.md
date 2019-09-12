@@ -1,5 +1,9 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.7.0
+- Make Operation classes configurable
+- Fix Paginate config
+
 ### v0.6.4
 - Default to `null` value in filter
 
