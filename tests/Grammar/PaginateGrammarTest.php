@@ -3,6 +3,7 @@
 namespace SehrGut\Eloquery\Tests\Grammar;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 use Mockery;
 use SehrGut\Eloquery\Grammar\PaginateGrammar;
 
@@ -42,6 +43,30 @@ class PaginateGrammarTest extends GrammarTestCase
 
         $this->assertEquals([
             'limit' => PaginateGrammar::MAX_LIMIT,
+            'page' => 3,
+        ], $result);
+    }
+
+    public function test_it_uses_configured_limits()
+    {
+        $config = [
+            'max_limit' => 12,
+            'default_limit' => 123,
+        ];
+
+        $this->request->shouldReceive('get')
+            ->with('limit', $config['default_limit'])
+            ->andReturn($config['max_limit'] * 2);
+
+        $this->request->shouldReceive('get')
+            ->with('page', PaginateGrammar::DEFAULT_PAGE)
+            ->andReturn(3);
+
+        $grammar = new PaginateGrammar($config);
+        $result = $grammar->extract($this->request);
+
+        $this->assertEquals([
+            'limit' => $config['max_limit'],
             'page' => 3,
         ], $result);
     }
