@@ -67,15 +67,17 @@ abstract class AbstractConstraint implements Operation
      *
      * @return array
      */
-    protected function getBuilderArguments() : array
+    protected function getBuilderArguments(): array
     {
         $arguments = [$this->attribute];
 
-        if (!is_null($this->getOperator())) {
-            $arguments[] = $this->getOperator();
+        if (!is_null($operator = $this->getOperator())) {
+            $arguments[] = $operator;
         }
 
-        $arguments[] = $this->getPreparedValue();
+        if (!is_null($preparedValue = $this->getPreparedValue())) {
+            $arguments[] = $preparedValue;
+        }
 
         return $arguments;
     }
@@ -85,7 +87,7 @@ abstract class AbstractConstraint implements Operation
      *
      * @return string
      */
-    protected function getBuilderMethod() : string
+    protected function getBuilderMethod(): string
     {
         return 'where';
     }

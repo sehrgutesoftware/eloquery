@@ -99,6 +99,22 @@ class FilterGrammarTest extends GrammarTestCase
         $result = $grammar->extract($this->request);
     }
 
+    public function test_it_allows_missing_value_with_null_operations()
+    {
+        $this->request->shouldReceive('get')
+            ->once()
+            ->with('filter')
+            ->andReturn([
+                ['key' => 'something', 'value' => 'not missing'],
+                ['key' => 'something', 'operator' => 'IS_NULL'],
+                ['key' => 'something', 'operator' => 'IS_NOT_NULL'],
+            ]);
+
+        $grammar = new FilterGrammar(['whitelist' => false]);
+        $result = $grammar->extract($this->request);
+        $this->assertCount(3, $result);
+    }
+
     /**
      * @expectedException UnexpectedValueException
      */

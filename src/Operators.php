@@ -20,6 +20,9 @@ class Operators
     const IN = 'IN';
     const BETWEEN = 'BETWEEN';
 
+    const IS_NULL = 'IS_NULL';
+    const IS_NOT_NULL = 'IS_NOT_NULL';
+
     /**
      * Retrieve all possible operations.
      *

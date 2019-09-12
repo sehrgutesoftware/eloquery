@@ -52,6 +52,8 @@ class Filter implements Operation
         Operators::LESS_EQUAL => \SehrGut\Eloquery\Constraints\LessEqualConstraint::class,
         Operators::IN => \SehrGut\Eloquery\Constraints\InConstraint::class,
         Operators::BETWEEN => \SehrGut\Eloquery\Constraints\BetweenConstraint::class,
+        Operators::IS_NULL => \SehrGut\Eloquery\Constraints\IsNullConstraint::class,
+        Operators::IS_NOT_NULL => \SehrGut\Eloquery\Constraints\IsNotNullConstraint::class,
     ];
 
     /**

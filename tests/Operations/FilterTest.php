@@ -209,6 +209,44 @@ class FilterTest extends OperationTestCase
         $filter->applyToBuilder($this->builder);
     }
 
+    public function test_it_applies_an_is_null_constraint()
+    {
+        // Positive
+        $this->builder->shouldReceive('whereNull')
+            ->once()
+            ->with('field');
+
+        $filter = new Filter('field', null, Operators::IS_NULL, false);
+        $filter->applyToBuilder($this->builder);
+
+        // Negated
+        $this->builder->shouldReceive('whereNotNull')
+            ->once()
+            ->with('field');
+
+        $filter = new Filter('field', null, Operators::IS_NULL, true);
+        $filter->applyToBuilder($this->builder);
+    }
+
+    public function test_it_applies_an_is_not_null_constraint()
+    {
+        // Positive
+        $this->builder->shouldReceive('whereNotNull')
+            ->once()
+            ->with('field');
+
+        $filter = new Filter('field', null, Operators::IS_NOT_NULL, false);
+        $filter->applyToBuilder($this->builder);
+
+        // Negated
+        $this->builder->shouldReceive('whereNull')
+            ->once()
+            ->with('field');
+
+        $filter = new Filter('field', null, Operators::IS_NOT_NULL, true);
+        $filter->applyToBuilder($this->builder);
+    }
+
     public function test_it_applies_a_constraint_on_a_relationship()
     {
         $model = Mockery::mock(Model::class);

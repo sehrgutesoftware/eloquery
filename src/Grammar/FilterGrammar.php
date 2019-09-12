@@ -62,9 +62,21 @@ class FilterGrammar extends AbstractGrammar
      */
     protected function validateFilter(array $filter)
     {
-        // Ensure that key and value are present
-        if (!isset($filter['key']) or !isset($filter['value'])) {
-            throw new UnexpectedValueException('each filter must contain both key and value');
+        // Ensure that key is present
+        if (!isset($filter['key'])) {
+            throw new UnexpectedValueException('Each filter must contain a key');
+        }
+
+        // Ensure that a value is present
+        if (isset($filter['operator'])
+            and (
+                strtoupper($filter['operator']) === Operators::IS_NULL
+                or strtoupper($filter['operator']) === Operators::IS_NOT_NULL
+            )
+        ) {
+            // IS_NULL and IS_NOT_NULL don't require a value
+        } elseif (!isset($filter['value'])) {
+            throw new UnexpectedValueException('Each filter must contain a value');
         }
 
         // Ensure that operator is valid

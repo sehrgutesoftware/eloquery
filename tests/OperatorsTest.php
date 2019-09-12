@@ -17,6 +17,8 @@ class OperatorsTest extends TestCase
         'LESS_EQUAL',
         'IN',
         'BETWEEN',
+        'IS_NULL',
+        'IS_NOT_NULL',
     ];
 
     public function test_it_lists_all_operators()

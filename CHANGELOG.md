@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.6.3
+- Introduce `IS_NULL` and `IS_NOT_NULL` operations
+
 ### v0.6.2
 - Allow setting default and max page size via config
 - Fix SearchGrammarTest
