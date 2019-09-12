@@ -14,8 +14,8 @@ $options = [
     'theme' => 'default',
     'title' => 'Eloquery API Documentation',
     'versions' => $versions,
-    'build_dir' => __DIR__ . '/../eloquery-docs/api/%version%',
-    'cache_dir' => __DIR__ . '/../eloquery-docs/cache/%version%',
+    'build_dir' => __DIR__ . '/api/%version%',
+    'cache_dir' => __DIR__ . '/cache/%version%',
 ];
 
 $sami = new Sami\Sami($iterator, $options);
