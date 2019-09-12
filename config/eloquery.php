@@ -26,6 +26,9 @@ return [
         // the request and extracting the corresponding constraints from it.
         'grammar' => \SehrGut\Eloquery\Grammar\PaginateGrammar::class,
 
+        // The Operation that is applied to the query builder
+        'operation' => \SehrGut\Eloquery\Operations\Paginate::class,
+
         // Maximum allowed page size that can be set via query param
         'max_limit' => 100,
 
@@ -44,6 +47,9 @@ return [
         // Grammar classes contain the logic that is responsible for interpreting
         // the request and extracting the corresponding constraints from it.
         'grammar' => \SehrGut\Eloquery\Grammar\FilterGrammar::class,
+
+        // The Operation that is applied to the query builder
+        'operation' => \SehrGut\Eloquery\Operations\Filter::class,
 
         'config' => [
 
@@ -68,6 +74,9 @@ return [
         // the request and extracting the corresponding constraints from it.
         'grammar' => \SehrGut\Eloquery\Grammar\SortGrammar::class,
 
+        // The Operation that is applied to the query builder
+        'operation' => \SehrGut\Eloquery\Operations\Sort::class,
+
     ],
 
     /*
@@ -80,6 +89,9 @@ return [
         // Grammar classes contain the logic that is responsible for interpreting
         // the request and extracting the corresponding constraints from it.
         'grammar' => \SehrGut\Eloquery\Grammar\SideloadGrammar::class,
+
+        // The Operation that is applied to the query builder
+        'operation' => \SehrGut\Eloquery\Operations\Sideload::class,
 
         'config' => [
 
@@ -102,6 +114,9 @@ return [
         // Grammar classes contain the logic that is responsible for interpreting
         // the request and extracting the corresponding constraints from it.
         'grammar' => \SehrGut\Eloquery\Grammar\SearchGrammar::class,
+
+        // The Operation that is applied to the query builder
+        'operation' => \SehrGut\Eloquery\Operations\Search::class,
 
         'config' => [
 

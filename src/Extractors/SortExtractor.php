@@ -4,7 +4,6 @@ namespace SehrGut\Eloquery\Extractors;
 
 use Illuminate\Http\Request;
 use SehrGut\Eloquery\OperationCollection;
-use SehrGut\Eloquery\Operations\Sort;
 
 class SortExtractor extends AbstractExtractor
 {
@@ -17,9 +16,10 @@ class SortExtractor extends AbstractExtractor
     public function extract(Request $request): OperationCollection
     {
         $grammar = $this->makeGrammar();
+        $operation = $this->getOperationClass();
 
-        $sort = array_map(function ($sort) {
-            return new Sort($sort['key'], $sort['direction'] === 'ASC');
+        $sort = array_map(function ($sort) use ($operation) {
+            return new $operation($sort['key'], $sort['direction'] === 'ASC');
         }, $grammar->extract($request));
 
         return new OperationCollection($sort);

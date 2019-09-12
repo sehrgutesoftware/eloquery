@@ -38,4 +38,14 @@ abstract class AbstractExtractor implements Extractor
 
         return new $class($config);
     }
+
+    /**
+     * Get the FQN of the Operation class that this Extractor should produce.
+     *
+     * @return string
+     */
+    protected function getOperationClass(): string
+    {
+        return $this->config['operation'];
+    }
 }

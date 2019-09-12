@@ -4,7 +4,6 @@ namespace SehrGut\Eloquery\Extractors;
 
 use Illuminate\Http\Request;
 use SehrGut\Eloquery\OperationCollection;
-use SehrGut\Eloquery\Operations\Search;
 
 class SearchExtractor extends AbstractExtractor
 {
@@ -17,9 +16,10 @@ class SearchExtractor extends AbstractExtractor
     public function extract(Request $request): OperationCollection
     {
         $grammar = $this->makeGrammar();
+        $operation = $this->getOperationClass();
 
-        $search = array_map(function ($search) {
-            return new Search($search['query'], $search['attributes']);
+        $search = array_map(function ($search) use ($operation) {
+            return new $operation($search['query'], $search['attributes']);
         }, $grammar->extract($request));
 
         return new OperationCollection($search);

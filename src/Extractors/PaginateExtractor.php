@@ -4,7 +4,6 @@ namespace SehrGut\Eloquery\Extractors;
 
 use Illuminate\Http\Request;
 use SehrGut\Eloquery\OperationCollection;
-use SehrGut\Eloquery\Operations\Paginate;
 
 class PaginateExtractor extends AbstractExtractor
 {
@@ -17,11 +16,12 @@ class PaginateExtractor extends AbstractExtractor
     public function extract(Request $request): OperationCollection
     {
         $grammar = $this->makeGrammar();
+        $operation = $this->getOperationClass();
 
         $params = $grammar->extract($request);
 
         return new OperationCollection([
-            new Paginate($params['limit'], $params['page'])
+            new $operation($params['limit'], $params['page'])
         ]);
     }
 }

@@ -4,7 +4,6 @@ namespace SehrGut\Eloquery\Extractors;
 
 use Illuminate\Http\Request;
 use SehrGut\Eloquery\OperationCollection;
-use SehrGut\Eloquery\Operations\Sideload;
 
 class SideloadExtractor extends AbstractExtractor
 {
@@ -17,9 +16,10 @@ class SideloadExtractor extends AbstractExtractor
     public function extract(Request $request): OperationCollection
     {
         $grammar = $this->makeGrammar();
+        $operation = $this->getOperationClass();
 
-        $includes = array_map(function ($include) {
-            return new Sideload($include['relationship']);
+        $includes = array_map(function ($include) use ($operation) {
+            return new $operation($include['relationship']);
         }, $grammar->extract($request));
 
         return new OperationCollection($includes);

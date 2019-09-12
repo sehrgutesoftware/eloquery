@@ -26,6 +26,7 @@ class PaginateGrammarTest extends GrammarTestCase
             'page' => 3,
         ], $result);
     }
+
     public function test_it_cant_exceed_the_maximum_value_for_limit()
     {
         $this->request->shouldReceive('get')
