@@ -52,7 +52,7 @@ Please refer to [CHANGELOG.md](CHANGELOG.md).
 - [ ] Document query params syntax/usage
 
 ## Compatibility
-Tested with PHP 7.1, 7.2, 7.3 and 7.4
+Tested with PHP 7.2, 7.3 and 7.4
 
 ## Testing
 ```bash

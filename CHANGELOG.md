@@ -1,7 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
-### v0.7.1
+### v0.8.0
 - Mark compatible with Laravel 6.x and PHP 7.4
+- Drop PHP 7.1 compatibility
 
 ### v0.7.0
 - Make Operation classes configurable
