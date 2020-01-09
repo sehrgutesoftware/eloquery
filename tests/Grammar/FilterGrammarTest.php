@@ -51,11 +51,9 @@ class FilterGrammarTest extends GrammarTestCase
         ], $result);
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function test_it_bails_when_filters_are_not_an_array()
     {
+        $this->expectException(\UnexpectedValueException::class);
         $this->request->shouldReceive('get')
             ->once()
             ->with('filter')
@@ -65,11 +63,9 @@ class FilterGrammarTest extends GrammarTestCase
         $result = $grammar->extract($this->request);
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function test_it_bails_when_key_is_missing_from_filters()
     {
+        $this->expectException(\UnexpectedValueException::class);
         $this->request->shouldReceive('get')
             ->once()
             ->with('filter')
@@ -82,11 +78,9 @@ class FilterGrammarTest extends GrammarTestCase
         $result = $grammar->extract($this->request);
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function test_it_bails_when_value_is_missing_from_filters()
     {
+        $this->expectException(\UnexpectedValueException::class);
         $this->request->shouldReceive('get')
             ->once()
             ->with('filter')
@@ -115,11 +109,9 @@ class FilterGrammarTest extends GrammarTestCase
         $this->assertCount(3, $result);
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function test_it_bails_when_operator_is_invalid()
     {
+        $this->expectException(\UnexpectedValueException::class);
         $this->request->shouldReceive('get')
             ->once()
             ->with('filter')

@@ -9,11 +9,9 @@ use SehrGut\Eloquery\OperationCollection;
 
 class OperationCollectionTest extends OperationTestCase
 {
-    /**
-     * @expectedException TypeError
-     */
     public function test_it_rejects_non_operation_items()
     {
+        $this->expectException(\TypeError::class);
         new OperationCollection(['foo']);
     }
 

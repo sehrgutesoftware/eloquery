@@ -17,7 +17,7 @@ class TestCase extends PhpUnitTestCase
         return require __DIR__ . '/../config/eloquery.php';
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         parent::tearDown();
         if ($container = Mockery::getContainer()) {

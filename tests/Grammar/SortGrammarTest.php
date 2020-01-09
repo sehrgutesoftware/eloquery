@@ -51,11 +51,9 @@ class SortGrammarTest extends GrammarTestCase
         ], $result);
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function test_it_bails_when_sorts_are_not_an_array()
     {
+        $this->expectException(\UnexpectedValueException::class);
         $this->request->shouldReceive('get')
             ->once()
             ->with('sort')
@@ -65,11 +63,9 @@ class SortGrammarTest extends GrammarTestCase
         $result = $grammar->extract($this->request);
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function test_it_bails_when_key_is_missing_from_sorts()
     {
+        $this->expectException(\UnexpectedValueException::class);
         $this->request->shouldReceive('get')
             ->once()
             ->with('sort')
@@ -82,11 +78,9 @@ class SortGrammarTest extends GrammarTestCase
         $result = $grammar->extract($this->request);
     }
 
-    /**
-     * @expectedException UnexpectedValueException
-     */
     public function test_it_bails_when_direction_is_invalid()
     {
+        $this->expectException(\UnexpectedValueException::class);
         $this->request->shouldReceive('get')
             ->once()
             ->with('sort')

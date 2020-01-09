@@ -1,5 +1,8 @@
 # Changelog (sehrgut/eloquery)
 
+### v0.7.1
+- Mark compatible with Laravel 6.x and PHP 7.4
+
 ### v0.7.0
 - Make Operation classes configurable
 - Fix Paginate config

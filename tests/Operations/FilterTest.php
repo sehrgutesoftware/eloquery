@@ -11,11 +11,9 @@ use SehrGut\Eloquery\Operators;
 
 class FilterTest extends OperationTestCase
 {
-    /**
-     * @expectedException InvalidArgumentException
-     */
     public function test_it_throws_an_exception_on_invalid_operator()
     {
+        $this->expectException(\InvalidArgumentException::class);
         $filter = new Filter('field', 'value', 'non-exisiting-operator', false);
     }
 
