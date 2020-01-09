@@ -8,7 +8,7 @@ $iterator = Symfony\Component\Finder\Finder::create()
     ->in($dir);
 
 $versions = Sami\Version\GitVersionCollection::create($dir)
-    ->addFromTags('v*');
+    ->addFromTags('v0.8.0');
 
 $options = [
     'theme' => 'default',
