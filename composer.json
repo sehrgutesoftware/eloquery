@@ -36,7 +36,7 @@
             "./vendor/bin/phpunit"
         ],
         "docs": [
-            "./bin/sami update docs/sami.php"
+            "@php ./bin/doctum update docs/doctum.php"
         ]
     },
     "extra": {

@@ -7,8 +7,8 @@ $iterator = Symfony\Component\Finder\Finder::create()
     ->name('*.php')
     ->in($dir);
 
-$versions = Sami\Version\GitVersionCollection::create($dir)
-    ->addFromTags('v0.8.0');
+$versions = Doctum\Version\GitVersionCollection::create($dir)
+    ->addFromTags('v0.8.1');
 
 $options = [
     'theme' => 'default',
@@ -18,6 +18,6 @@ $options = [
     'cache_dir' => __DIR__ . '/cache/%version%',
 ];
 
-$sami = new Sami\Sami($iterator, $options);
+$sami = new Doctum\Doctum($iterator, $options);
 
 return $sami;
